@@ -10,9 +10,6 @@ const styles = require('./assets/styles/appstyle.js');
 const subloginstyles = require('./assets/styles/subloginstyle.js');
 const signupstyles = require('./assets/styles/signupstyle.js');
 
-function onPressSignUpButton() {
-  console.log("signup nek");
-}
 function onPressVietnameseButton() {
   console.log("Đổi sang Tiếng Việt");
 }
@@ -253,6 +250,10 @@ function SignUpSubScene({navigation}){
     </View>
   )
 }
+//Scene that will appear if you login succeed
+function MainPage({navigation}){
+
+}
 
 const Stack = createNativeStackNavigator();
 
@@ -265,6 +266,7 @@ function App() {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="LoginSubScene" component={LoginSubScene} />
         <Stack.Screen name="SignUpSubScene" component={SignUpSubScene}/>
+        <Stack.Screen name="MainPage" component={MainPage}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

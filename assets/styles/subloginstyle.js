@@ -7,8 +7,8 @@ module.exports = StyleSheet.create({
         flex:1,
     },
     header:{
+        height:60,
         backgroundColor:'royalblue',
-        flex: .1,
         flexDirection:'row',
         alignItems: 'center',
     },
@@ -25,7 +25,7 @@ module.exports = StyleSheet.create({
         height:50,
     },
     sublogin_text_view:{
-        flex:.08,
+        height:50,
         marginLeft:15,
         flexDirection:'row',
         alignItems:'center',
@@ -74,13 +74,13 @@ module.exports = StyleSheet.create({
         color:'royalblue',
       },
       next_button_field:{
-        flex:.8,
+        flex:.95,
       },
       next_button:{
         borderRadius:100,
         position: 'absolute',
-        right: 30,
-        bottom: 30,
+        right: 20,
+        bottom: 20,
       },
       next_button_image:{
             width:60,

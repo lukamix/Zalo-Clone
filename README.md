@@ -3,18 +3,23 @@
 ## Bài tập lớn Phát triển ứng dụng đa nền tảng  128738 - IT4788
 
   ### Yêu cầu phần mềm :
+  
 Cài đặt nodejs phiên bản mới nhất tại [đây](https://nodejs.org/en/download/)
 
   **Kiểm tra Version NodeJs :**
+  
   node -v
   
   **Cài dặt expo-cli :**
+  
   npm install --global expo-cli
   
 **Clone Project, Mở Terminal lên và nhập :**
+
   npm install
   
 **Sau đó :**
+
   npm start
   
 **1 Cửa sổ localhost sẽ hiện lên.**

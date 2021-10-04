@@ -13,8 +13,13 @@
   **Cài dặt expo-cli :**
   
       npm install --global expo-cli
-  
-**Clone Project, Mở Terminal lên và nhập :**
+
+**Clone Project**
+
+**Mở Project bằng IDE bằng cách nhập lệnh cmd trong thư mục Project**
+      code .
+      
+**, Mở Terminal Trên IDE lên và nhập :**
 
       npm install
   

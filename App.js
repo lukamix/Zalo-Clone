@@ -16,12 +16,12 @@ function App() {
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName="MainPage"
+        initialRouteName="Home"
       >
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="SignUpSubScene" component={SignUpSubScene} />
         <Stack.Screen name="LoginSubScene" component={LoginSubScene} />
-        {/* <Stack.Screen name="MainPage" component={MainPage} /> */}
+        <Stack.Screen name="MainPage" component={MainPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );

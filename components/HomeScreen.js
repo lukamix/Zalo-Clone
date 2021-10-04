@@ -76,7 +76,9 @@ class HomeScreen extends Component {
               <Text style={styles.loginbuttonText}>Login</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={onPressSignUpButton}>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate("SignUpSubScene")}
+          >
             <View style={styles.SignUpButton}>
               <Text style={styles.signupbuttonText}>Sign Up</Text>
             </View>

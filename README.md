@@ -17,6 +17,7 @@
 **Clone Project**
 
 **Mở Project bằng IDE bằng cách nhập lệnh cmd trong thư mục Project**
+
       code .
       
 **, Mở Terminal Trên IDE lên và nhập :**

@@ -4,7 +4,7 @@
 
   ### Yêu cầu phần mềm :
   
-      Cài đặt nodejs phiên bản mới nhất tại [đây](https://nodejs.org/en/download/)
+  Cài đặt nodejs phiên bản mới nhất tại [đây](https://nodejs.org/en/download/)
 
   **Kiểm tra Version NodeJs :**
   

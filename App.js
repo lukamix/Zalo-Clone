@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Swiper from 'react-native-swiper';
 import { StatusBar } from 'expo-status-bar';
+import MainPage from './MainPage.js';
 
 const styles = require('./assets/styles/appstyle.js');
 const subloginstyles = require('./assets/styles/subloginstyle.js');
@@ -250,10 +251,6 @@ function SignUpSubScene({navigation}){
     </View>
   )
 }
-//Scene that will appear if you login succeed
-function MainPage({navigation}){
-
-}
 
 const Stack = createNativeStackNavigator();
 
@@ -262,7 +259,7 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{
     headerShown: false
-  }} initialRouteName="Home">
+  }} initialRouteName="MainPage">
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="LoginSubScene" component={LoginSubScene} />
         <Stack.Screen name="SignUpSubScene" component={SignUpSubScene}/>

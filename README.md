@@ -1,2 +1,16 @@
 # Zalo-Clone
 Bài tập lớn Phát triển ứng dụng đa nền tảng  128738 - IT4788
+Yêu cầu phần mềm :
+Cài đặt nodejs phiên bản mới nhất tại dây
+Kiểm tra Version NodeJs :
+  node -v
+Cài dặt expo-cli :
+  npm install --global expo-cli
+Clone Project, Mở Terminal lên và nhập :
+  npm install
+Sau đó :
+  npm start
+1 Cửa sổ localhost sẽ hiện lên.
+Cài đặt ứng dụng Expo Go trên IOS hoặc Android thông qua App Store,Google Play Store
+Quét QR trên cửa sổ localhost bằng Camera điện thoại 
+Enjoy it !

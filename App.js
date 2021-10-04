@@ -5,16 +5,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Swiper from 'react-native-swiper';
 import { StatusBar } from 'expo-status-bar';
+import MainPage from './MainPage.js';
 
 const styles = require('./assets/styles/appstyle.js');
 const subloginstyles = require('./assets/styles/subloginstyle.js');
+const signupstyles = require('./assets/styles/signupstyle.js');
 
-function onPressLoginButton() {
-  
-}
-function onPressSignUpButton() {
-  console.log("signup nek");
-}
 function onPressVietnameseButton() {
   console.log("Đổi sang Tiếng Việt");
 }
@@ -99,7 +95,7 @@ function HomeScreen({navigation}) {
               <Text style={styles.loginbuttonText}>Login</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={onPressSignUpButton}> 
+        <TouchableOpacity onPress={() => navigation.navigate('SignUpSubScene')}> 
           <View style={styles.SignUpButton}>
               <Text style={styles.signupbuttonText}>Sign Up</Text>
           </View>
@@ -186,6 +182,75 @@ function LoginSubScene({navigation}) {
     </View>
   );
 }
+//Next Scene that will appear if you click on the SignUp button in Home Screen
+function SignUpSubScene({navigation}){
+  const [signupphonenumber, setText] = useState("");
+  return(
+    <View style ={signupstyles.container}>
+      <View style={subloginstyles.header}>
+        <TouchableOpacity style={styles.back_button_image} activeOpacity={0.5} onPress={() => navigation.navigate('Home')}>
+            <Image
+              source={require('./assets/images/common/back-button.png')}
+              style={subloginstyles.back_button_image}
+            />
+        </TouchableOpacity>
+        <Text style={subloginstyles.login_title}>
+            Tạo tài khoản
+        </Text>
+      </View>
+      <View style={subloginstyles.sublogin_text_view}>
+        <Text style={subloginstyles.login_sub_title}>
+          Vui lòng nhập số điện thoại của bạn để tạo tài khoản mới
+        </Text>
+      </View>
+      <View style={subloginstyles.login_field}>
+        <TextInput
+          style={subloginstyles.textInput}
+          value={signupphonenumber}
+          placeholder="Số Điện Thoại"
+          keyboardType="numeric"
+          onChangeText={(value) => setText(value)}
+        />
+        <TouchableOpacity
+            style={subloginstyles.closeButtonParent}
+            onPress={() => setText("")}
+          >
+            <Image
+              style={subloginstyles.closeButton}
+              source={require("./assets/images/common/close.png")}
+            />
+          </TouchableOpacity>
+      </View>
+      <View style={subloginstyles.login_field}>
+        <TextInput 
+          style={subloginstyles.textInput}
+          value={signupphonenumber}
+          placeholder="Họ Và Tên"
+          onChangeText={(value) => setText(value)}
+        />
+        <TouchableOpacity
+            style={subloginstyles.closeButtonParent}
+            onPress={() => setText("")}
+          >
+            <Image
+              style={subloginstyles.closeButton}
+              source={require("./assets/images/common/close.png")}
+            />
+          </TouchableOpacity>
+      </View>
+      <View style={subloginstyles.next_button_field}>
+        <TouchableOpacity
+            style={subloginstyles.next_button}
+          >
+            <Image
+              style={subloginstyles.next_button_image}
+              source={require("./assets/images/common/next-grey-button.png")}
+            />
+          </TouchableOpacity>
+      </View>
+    </View>
+  )
+}
 
 const Stack = createNativeStackNavigator();
 
@@ -194,9 +259,11 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{
     headerShown: false
-  }} initialRouteName="Home">
+  }} initialRouteName="MainPage">
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="LoginSubScene" component={LoginSubScene} />
+        <Stack.Screen name="SignUpSubScene" component={SignUpSubScene}/>
+        <Stack.Screen name="MainPage" component={MainPage}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

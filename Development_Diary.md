@@ -1,7 +1,7 @@
 ## Nhật ký làm App :
 # Bắt đầu vào 1 ngày sau khi Facebook bị sập 2 ngày và Expo hôm nay bất ngờ bị sập :
 
-[Đức][??:??]28/9/2021 : Dự án được khởi công.
+**[Đức]** [??:??]28/9/2021 : Dự án được khởi công.
 
 [Đức][??:??]??/??/2021 : Tôi yêu cầu Dũng code base cho app, TLong nhận chỉnh sửa code vì có ám ảnh cưỡng chế với việc đó
 

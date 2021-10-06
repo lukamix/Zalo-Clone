@@ -1,4 +1,4 @@
-#### Nhật ký làm App :
+### Nhật ký làm App :
 # Bắt đầu vào 1 ngày sau khi Facebook bị sập 2 ngày và Expo hôm nay bất ngờ bị sập :
 
 [??:??]28/9/2021 : Dự án được khởi công.

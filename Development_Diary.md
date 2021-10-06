@@ -1,5 +1,4 @@
 ## Nhật ký làm App :
-# Bắt đầu vào 1 ngày sau khi Facebook bị sập 2 ngày và Expo hôm nay bất ngờ bị sập :
 
 **[Đức]** [??:??] 28/9/2021 : Dự án được khởi công.
 
@@ -19,4 +18,4 @@
 
   ![244344660_1190624484759996_6271804372146166747_n](https://user-images.githubusercontent.com/62656512/136244444-d37e3219-e3ba-43bf-aa79-1b2d5b6de533.jpg).
 
-**[Đức]** [11:20] 6/10/2021 : Nhật ký này được ra đời sau quyết định táo bạo của thằng Dũng.
+**[Đức]** [11:20] 6/10/2021 : Nhật ký này được ra đời sau quyết định táo bạo của thằng Dũng ,expo bị sập .

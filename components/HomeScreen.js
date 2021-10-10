@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import { TouchableOpacity, Text, View, Image } from "react-native";
 const styles = require("../assets/styles/appstyle.js");
-import Swiper from "react-native-swiper";
+import Swiper from 'react-native-swiper/src';
 import { StatusBar } from "expo-status-bar";
 
-function onPressSignUpButton() {
-  console.log("signup nek");
-}
 function onPressVietnameseButton() {
   console.log("Đổi sang Tiếng Việt");
 }

@@ -1,13 +1,90 @@
 "use strict";
 import React, { useState } from "react";
-import { TouchableOpacity, Text, View, Image, TextInput } from "react-native";
+import { TouchableOpacity,FlatList , Text, View, Image, TextInput } from "react-native";
 
 const {URI} = require("../../Constants/Constants.js");
 const styles = require("../../assets/styles/mainpagestyles/messagescreenstyles.js");
 const subloginstyles = require("../../assets/styles/subloginstyle.js");
+const avatar_url_test="../../assets/images/common/unnamed.png";
+
+const DATA = [
+    {
+        avatar:require("../../assets/images/common/unnamed.png"),
+        username: 'Nguyễn Bá Đức',
+        id:'1',
+        title:'1',
+        status: '5 phút trước',
+        message: 'Đi chơi không cu?'
+    },
+    {
+        avatar:require("../../assets/images/common/unnamed.png"),
+        username: 'Nại Ngọc Thăng Nong',
+        id:'2',
+        title:'1',
+        status: '8 phút trước',
+        message: 'Đi chơi không cu?'
+    },
+    {
+        avatar:require("../../assets/images/common/unnamed.png"),
+        username: 'Nguyễn Đềnh Dũng',
+        id:'3',
+        title:'1',
+        status: '11 phút trước',
+        message: 'Đi chơi không cu?'
+    },
+    {
+        avatar:require("../../assets/images/common/unnamed.png"),
+        username: 'Nguyễn Khươn Dui',
+        id:'4',
+        title:'1',
+        status: '12 phút trước',
+        message: 'Đi chơi không cu?'
+    },
+    {
+        avatar:require("../../assets/images/common/unnamed.png"),
+        username: 'Nguyễn Thành Nong',
+        id:'5',
+        title:'1',
+        status: '13 phút trước',
+        message: 'Đi chơi không cu?'
+    },
+    {
+        avatar:require("../../assets/images/common/unnamed.png"),
+        username: 'Nguyễn Thành Nong',
+        id:'6',
+        title:'1',
+        status: '14 phút trước',
+        message: 'Đi chơi không cu?'
+    },
+    {
+        avatar:require("../../assets/images/common/unnamed.png"),
+        username: 'Nguyễn Thành Nong',
+        id:'7',
+        title:'1',
+        status: '15 phút trước',
+        message: 'Đi chơi không cu?'
+    },
+    {
+        avatar:require("../../assets/images/common/unnamed.png"),
+        username: 'Nguyễn Thành Nong',
+        id:'8',
+        title:'1',
+        status: '16 phút trước',
+        message: 'Đi chơi không cu?'
+    },
+    {
+        avatar:require("../../assets/images/common/unnamed.png"),
+        username: 'Nguyễn Thành Nong',
+        id:'9',
+        title:'1',
+        status: '17 phút trước',
+        message: 'Đi chơi không cu?'
+    },
+  ];
 
 function MessageScreen({ navigation }) {
     const [search_input, setSearchInput] = useState("");
+    
     return (
         <View style={styles.container}>
             <View style={subloginstyles.header}>
@@ -48,6 +125,27 @@ function MessageScreen({ navigation }) {
                     />
                 </TouchableOpacity>
             </View>
+                <FlatList
+                    data={DATA}
+                    renderItem={({item})=>{
+                        return <TouchableOpacity style={styles.FlatMessUnit}>
+                                    <Image
+                                        source={item.avatar}
+                                        style={styles.FlatMessUnitImage}
+                                    />
+                                    <View style ={styles.userproperties}>
+                                        <View style ={styles.status}>
+                                            <Text style={styles.username}>{item.username}</Text>
+                                            <Text style={styles.statusText}>
+                                            {item.status}
+                                            </Text>
+                                        </View>
+                                        <Text style={styles.message}>{item.message}</Text>
+                                    </View>
+                                </TouchableOpacity>
+                    }}
+                    keyExtractor={item => item.id}
+                />
             <View>
 
             </View>

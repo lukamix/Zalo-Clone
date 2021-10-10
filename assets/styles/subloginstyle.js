@@ -1,5 +1,6 @@
 'use strict';
 import { StyleSheet } from 'react-native';
+const {MAIN_COLOR,SUB_COLOR} = require("../../Constants/Constants.js");
 
 module.exports = StyleSheet.create({
     container:{
@@ -8,7 +9,7 @@ module.exports = StyleSheet.create({
     },
     header:{
         height: 60,
-        backgroundColor: 'royalblue',
+        backgroundColor: '#F048B8',
         flexDirection: 'row',
         alignItems: 'center',
     },
@@ -72,7 +73,7 @@ module.exports = StyleSheet.create({
         justifyContent: "space-between",
       },
       forget_password_text:{
-        color:'royalblue',
+        color:MAIN_COLOR,
       },
       next_button_field:{
         flex: .95,

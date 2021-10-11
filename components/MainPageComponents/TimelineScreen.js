@@ -6,6 +6,10 @@ const subloginstyles = require("../../assets/styles/subloginstyle.js");
 
 const {URI} = require("../../Constants/Constants.js");
 
+const DATA = {
+    
+}
+
 function TimelineScreen({ navigation }) {
     const [search_input, setSearchInput] = useState("");
     

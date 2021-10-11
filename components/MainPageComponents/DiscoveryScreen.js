@@ -50,7 +50,29 @@ function DiscoveryScreen({ navigation }) {
                 </TouchableOpacity>
             </View>
             <View style={styles.body}>
-                
+                <View style={styles.friend_around}>
+                    <Text style={styles.friend_around_text}>
+                        Bạn bè quanh đây
+                    </Text>
+                    <TouchableOpacity style ={styles.friend_around_touch}>
+                        <Image source={require('../../assets/images/common/friend_around.png')}
+                            style={styles.friend_around_image}
+                        />
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.dating_now}>
+                    <Text style={styles.dating_now_text}>
+                        Hẹn hò ngay
+                    </Text>
+                    <TouchableOpacity style ={styles.dating_now_touch}>
+                        <Image source={require('../../assets/images/common/dating_now.png')}
+                            style={styles.dating_now_image}
+                        />
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.service}>
+                    <Text>Các dịch vụ phụ trợ sẽ xuất hiện ở đây</Text>
+                </View>
             </View>
         </View>
     );

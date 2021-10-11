@@ -1,5 +1,6 @@
 "use strict";
 import { StyleSheet } from "react-native";
+const {MAIN_COLOR,SUB_COLOR} = require("../../Constants/Constants.js");
 
 module.exports = StyleSheet.create({
   container: {
@@ -11,7 +12,7 @@ module.exports = StyleSheet.create({
   logo: {
     fontWeight: "bold",
     fontSize: 32,
-    color: "royalblue",
+    color: MAIN_COLOR,
   },
   wrapper: {},
   slide1: {
@@ -48,7 +49,7 @@ module.exports = StyleSheet.create({
     width: 250,
     paddingVertical: 14,
     paddingHorizontal: 10,
-    backgroundColor: "royalblue",
+    backgroundColor: MAIN_COLOR,
     marginBottom: 15,
   },
   SignUpButton: {

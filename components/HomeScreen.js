@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import { TouchableOpacity, Text, View, Image } from "react-native";
 const styles = require("../assets/styles/appstyle.js");
-import Swiper from "react-native-swiper";
+import Swiper from 'react-native-swiper/src';
 import { StatusBar } from "expo-status-bar";
 
-function onPressSignUpButton() {
-  console.log("signup nek");
-}
 function onPressVietnameseButton() {
   console.log("Đổi sang Tiếng Việt");
 }
@@ -15,7 +12,7 @@ class HomeScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.logo}>Zalo</Text>
+        <Text style={styles.logo}>Okela</Text>
         <Swiper style={styles.wrapper}>
           <View style={styles.slide1}>
             <Image

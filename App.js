@@ -16,7 +16,7 @@ function App() {
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName="Home"
+        initialRouteName="MainPage"
       >
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="SignUpSubScene" component={SignUpSubScene} />

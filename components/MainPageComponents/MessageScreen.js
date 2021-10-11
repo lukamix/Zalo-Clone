@@ -5,7 +5,6 @@ import { TouchableOpacity,FlatList , Text, View, Image, TextInput } from "react-
 const {URI} = require("../../Constants/Constants.js");
 const styles = require("../../assets/styles/mainpagestyles/messagescreenstyles.js");
 const subloginstyles = require("../../assets/styles/subloginstyle.js");
-const avatar_url_test="../../assets/images/common/unnamed.png";
 
 const DATA = [
     {
@@ -146,9 +145,6 @@ function MessageScreen({ navigation }) {
                     }}
                     keyExtractor={item => item.id}
                 />
-            <View>
-
-            </View>
         </View>
     );
 }

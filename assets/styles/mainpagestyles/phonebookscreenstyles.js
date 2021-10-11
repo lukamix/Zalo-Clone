@@ -20,13 +20,13 @@ module.exports = StyleSheet.create({
     search_input:{
         flex:.77,
     },
-    QR_button:{
+    Voice_button:{
         position:'absolute',
         right:35,
         marginLeft: 10,
         marginRight: 10,
     },
-    QR_button_image:{
+    Voice_button_image:{
         flex: 1,
         width: 30,
         height: 30,
@@ -45,46 +45,47 @@ module.exports = StyleSheet.create({
         resizeMode: 'contain',
     },
     body:{
-
-    }, 
-    FlatMessUnit:{
-        width:100+"%",
-        borderBottomColor:SUB_COLOR,
-        backgroundColor:'#FFFFFF',
-        borderBottomWidth:.5,
-        flexDirection:'row',
-        alignItems:'center',
-    },
-    FlatMessUnitImage:{
         marginTop:15,
-        marginBottom:15,
-        marginLeft:20,
-        width:60,
-        height:60,
-        borderRadius:100,
-        resizeMode: 'center'
     },
-    userproperties:{
-        flex :1,
+    friend_request:{
+        marginTop:20,
         marginLeft:30,
+        marginRight:30,
+        flexDirection:'row',
     },
-    username:{
-        fontSize:15,
+    friend_request_image:{
+        width:56,
+        height:35,
+    },
+    friend_request_text:{
+        marginLeft:36,
+        fontSize:25,
         color:MAIN_COLOR,
     },
-    message:{
-        marginTop:5,
-        fontSize:12,
-        color:SUB_COLOR,
+    follower_image:{
+        marginLeft:15,
+        width:40,
+        height:40,
     },
-    status:{
-        flexDirection:'row',
+    black_list_image:{
+        marginLeft:15,
+        width:43,
+        height:32,
     },
-    statusText:{
-        position:'absolute',
-        right:10,
-        fontSize:14,
-        color:SUB_COLOR,
+    favorite_friend_image:{
+        marginLeft:15,
+        width:35,
+        height:33,
     },
-    
+    all_friend_image:{
+        marginTop:2,
+        marginLeft:8,
+        width:50,
+        height:26,
+    },
+    may_be_you_know_image:{
+        marginLeft:15,
+        width:40,
+        height:35,
+    },
 });

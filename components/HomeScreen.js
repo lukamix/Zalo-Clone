@@ -12,7 +12,7 @@ class HomeScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.logo}>Zalo</Text>
+        <Text style={styles.logo}>Okela</Text>
         <Swiper style={styles.wrapper}>
           <View style={styles.slide1}>
             <Image

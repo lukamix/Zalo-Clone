@@ -1,7 +1,5 @@
 # Zalo-Clone
 
-## Bài tập lớn Phát triển ứng dụng đa nền tảng  128738 - IT4788
-
   ### Yêu cầu phần mềm :
   
   Cài đặt nodejs phiên bản mới nhất tại [đây](https://nodejs.org/en/download/)

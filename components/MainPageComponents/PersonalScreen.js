@@ -50,7 +50,62 @@ function PersonalScreen({ navigation }) {
                 </TouchableOpacity>
             </View>
             <View style={styles.body}>
-                
+                <TouchableOpacity style={styles.person_container}>
+                    <Image source= {require("../../assets/images/timeline/person.png")}
+                        style={styles.person}/>
+                    <Text style={styles.person_text}>
+                        Nguyễn Bá Đức
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.person_container}>
+                    <Image source= {require("../../assets/images/timeline/profile.png")}
+                        style={styles.profile}/>
+                    <Text style={styles.person_text}>
+                        Thông tin cá nhân
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.person_container}>
+                    <Image source= {require("../../assets/images/timeline/protection.png")}
+                        style={styles.protection}/>
+                    <Text style={styles.person_text}>
+                        Bảo mật và quyền riêng tư
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.person_container}>
+                    <Image source= {require("../../assets/images/timeline/password.png")}
+                        style={styles.password}/>
+                    <Text style={styles.person_text}>
+                        Thay đổi mật khẩu
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.person_container}>
+                    <Image source= {require("../../assets/images/timeline/history.png")}
+                        style={styles.person}/>
+                    <Text style={styles.person_text}>
+                        Lịch sử hoạt động
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.person_container}>
+                    <Image source= {require("../../assets/images/timeline/rating.png")}
+                        style={styles.person}/>
+                    <Text style={styles.person_text}>
+                        Đánh giá ứng dụng
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.person_container}>
+                    <Image source= {require("../../assets/images/timeline/logout.png")}
+                        style={styles.person}/>
+                    <Text style={styles.person_text}>
+                        Đăng xuất
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.person_container}>
+                    <Image source= {require("../../assets/images/timeline/report.png")}
+                        style={styles.person}/>
+                    <Text style={styles.person_text}>
+                        Báo lỗi
+                    </Text>
+                </TouchableOpacity>
             </View>
         </View>
     );

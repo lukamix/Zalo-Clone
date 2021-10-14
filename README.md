@@ -14,7 +14,7 @@
   
    [Link](https://reactnative.dev/docs/environment-setup)
       
-      ! Chọn tab react native cli quickstart và làm theo hướng dẫn
+   **!** Chọn tab react native cli quickstart và làm theo hướng dẫn
 
 **Clone Project**
 

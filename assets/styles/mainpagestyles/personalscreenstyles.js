@@ -45,6 +45,35 @@ module.exports = StyleSheet.create({
         resizeMode: 'contain',
     },
     body:{
+        marginTop: 5,
+        marginLeft:10+"%",
+    },
+    person_container:{
+        marginTop:10,
+        flexDirection:'row',
+        marginRight:10,
+    },
+    person:{
+        width:45,
+        height:45,
+    },
+    person_text:{
+        marginTop:10,
+        marginLeft:10+"%",
+        fontSize:20,
+        color: MAIN_COLOR,
+    },
+    profile:{
         
-    }
+        width:40,
+        height:40,
+    },
+    protection:{
+        width:40,
+        height:40,
+    },
+    password:{
+        width:40,
+        height:40,
+    },
 });

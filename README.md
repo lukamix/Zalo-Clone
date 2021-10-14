@@ -10,7 +10,7 @@
   
       node -v
   
-  **Cấu hình hệ thống
+  **Cấu hình hệ thống**
   
    [Link](https://reactnative.dev/docs/environment-setup)
       
@@ -28,11 +28,11 @@
   
 **Sau đó :**
 
- android: (đảm bảo đã có android emulator ở bước cấu hình hệ thống)
+ Android: (đảm bảo đã có android emulator ở bước cấu hình hệ thống)
  
       npx react-native run-android
       
- ios:
+ IOS:
       
       npx react-native run-ios( ios)
   

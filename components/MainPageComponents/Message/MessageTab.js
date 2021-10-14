@@ -13,48 +13,6 @@ const DATA=[
         receiverid:2,
         messageid:1,
     },
-    {
-        content:"Chào anh, em đứng đây từ chiều",
-        userid:2,
-        receiverid:1,
-        messageid:2,
-    },
-    {
-        content:"Chào em, anh đứng đây từ chiều hôm mưa anh đưa chiếc ô, đã làm trái tim em có cầu vồng",
-        userid:1,
-        receiverid:2,
-        messageid:3,
-    },
-    {
-        content:"Chào anh, em đứng đây từ chiều",
-        userid:2,
-        receiverid:1,
-        messageid:4,
-    },
-    {
-        content:"Chào em, anh đứng đây từ chiều hôm mưa anh đưa chiếc ô, đã làm trái tim em có cầu vồng",
-        userid:1,
-        receiverid:2,
-        messageid:5,
-    },
-    {
-        content:"Chào anh, em đứng đây từ chiều",
-        userid:2,
-        receiverid:1,
-        messageid:6,
-    },
-    {
-        content:"Chào em, anh đứng đây từ chiều hôm mưa anh đưa chiếc ô, đã làm trái tim em có cầu vồng",
-        userid:1,
-        receiverid:2,
-        messageid:7,
-    },
-    {
-        content:"Chào anh, em đứng đây từ chiều",
-        userid:2,
-        receiverid:1,
-        messageid:8,
-    },
 ]
 
 function MessageTab({ route, navigation }) {
@@ -106,7 +64,7 @@ function MessageTab({ route, navigation }) {
 
             <FlatList
                 data={DATA}
-                keyExtractor={(item, index) => {item.messageid.toString()} }
+                keyExtractor={(item, index) => {return item.messageid.toString()} }
 
                 renderItem={({item})=>{
                     return <View style={styles.all_message}>

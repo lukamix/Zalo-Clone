@@ -156,7 +156,7 @@ function MessageScreen({ navigation }) {
                                     </View>
                                 </TouchableOpacity>
                     }}
-                    keyExtractor={item => item.id}
+                    keyExtractor={(item, index) => item.id.toString() }
                 />
         </View>
     );

@@ -55,7 +55,6 @@ const DATA=[
         receiverid:1,
         messageid:8,
     },
-2
 ]
 
 function MessageTab({ route, navigation }) {
@@ -107,7 +106,7 @@ function MessageTab({ route, navigation }) {
 
             <FlatList
                 data={DATA}
-                keyExtractor={item => item.messageid}
+                keyExtractor={(item, index) => {item.messageid.toString()} }
 
                 renderItem={({item})=>{
                     return <View style={styles.all_message}>

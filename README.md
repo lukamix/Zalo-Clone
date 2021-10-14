@@ -18,7 +18,7 @@
 
       code .
       
-**, Mở Terminal Trên IDE lên và nhập :**
+**Mở Terminal trên IDE lên và nhập :**
 
       npm install
   

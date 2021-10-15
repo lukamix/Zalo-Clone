@@ -4,7 +4,6 @@ const {MAIN_COLOR,SUB_COLOR,BLUE_COLOR,RED_COLOR} = require("../../../Constants/
 
 module.exports = StyleSheet.create({
     container:{
-        marginTop: 25,
         flex: 1,
     },
     search_button:{

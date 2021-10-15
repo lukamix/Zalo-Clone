@@ -1,13 +1,7 @@
-node_modules/
-.expo/
-npm-debug.*
-*.jks
-*.p8
-*.p12
-*.key
-*.mobileprovision
-*.orig.*
-web-build/
 
-# macOS
-.DS_Store
+android/app/build/outputs/apk/debug/app-debug.apk
+android/app/build/outputs/apk/debug/app-debug.apk
+android/app/build/outputs/apk/debug/app-debug.apk
+*.apk
+*.apk
+android/app/build/outputs/apk/debug/app-debug.apk

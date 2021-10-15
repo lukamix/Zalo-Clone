@@ -8,9 +8,11 @@
   
       node -v
   
-  **Cài dặt expo-cli :**
+  **Cấu hình hệ thống**
   
-      npm install --global expo-cli
+   [Link](https://reactnative.dev/docs/environment-setup)
+      
+   **!** Chọn tab react native cli quickstart và làm theo hướng dẫn
 
 **Clone Project**
 
@@ -18,18 +20,20 @@
 
       code .
       
-**, Mở Terminal Trên IDE lên và nhập :**
+**Mở Terminal trên IDE lên và nhập :**
 
-      npm install
+      npx react-native start
   
 **Sau đó :**
 
-      npm start
+ Android: (đảm bảo đã có android emulator ở bước cấu hình hệ thống)
+ 
+      npx react-native run-android
+      
+ IOS:
+      
+      npx react-native run-ios( ios)
   
-**1 Cửa sổ localhost sẽ hiện lên.**
 
-**Cài đặt ứng dụng Expo Go trên IOS hoặc Android thông qua App Store,Google Play Store**
-
-**Quét QR trên cửa sổ localhost bằng Camera điện thoại**
 
 **Enjoy it !**

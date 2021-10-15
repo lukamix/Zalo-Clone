@@ -127,7 +127,20 @@ function MessageScreen({ navigation }) {
                 <FlatList
                     data={DATA}
                     renderItem={({item})=>{
-                        return <TouchableOpacity style={styles.FlatMessUnit}>
+                        return <TouchableOpacity style={styles.FlatMessUnit} 
+                                    onPress={()=>
+                                        //fetch
+                                            {
+                                                //fetch here
+                                                navigation.navigate("MessageTab",{
+                                                username:item.username,
+                                                useravatar:item.avatar,
+                                                userstatus:item.status,
+                                                //pass more params here
+                                            })
+                                        }
+                                    }
+                                >
                                     <Image
                                         source={item.avatar}
                                         style={styles.FlatMessUnitImage}
@@ -143,7 +156,7 @@ function MessageScreen({ navigation }) {
                                     </View>
                                 </TouchableOpacity>
                     }}
-                    keyExtractor={item => item.id}
+                    keyExtractor={(item, index) => item.id.toString() }
                 />
         </View>
     );

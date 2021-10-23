@@ -5,3 +5,7 @@ android/app/build/outputs/apk/debug/app-debug.apk
 *.apk
 *.apk
 android/app/build/outputs/apk/debug/app-debug.apk
+android/app/build/outputs/apk/debug/app-debug.apk
+android/java_pid17628.hprof
+android/app/build/outputs/apk/debug/app-debug.apk
+*.apk

@@ -67,7 +67,7 @@ class HomeScreen extends Component {
         </Swiper>
         <View style={styles.loginsignup}>
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate("LoginSubScene")}
+            onPress={() => this.props.navigation.navigate("LoginSubScreen")}
           >
             <View style={styles.LoginButton}>
               <Text style={styles.loginbuttonText}>Login</Text>

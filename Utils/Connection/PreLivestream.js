@@ -17,7 +17,7 @@ export default function PreLiveStream ({navigation}){
             </TouchableOpacity>
             <TouchableOpacity
                 onPress={()=>{
-                    navigation.navigate("LiveStreamAudience",{
+                    navigation.navigate("LiveStreamRoom",{
                         role:"audience",
                     });
                 }}

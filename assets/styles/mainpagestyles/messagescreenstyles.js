@@ -60,20 +60,20 @@ module.exports = StyleSheet.create({
         marginLeft:20,
         width:60,
         height:60,
-        borderRadius:100,
-        resizeMode: 'center'
+        borderRadius:50,
+        resizeMode:'cover'
     },
     userproperties:{
         flex :1,
         marginLeft:30,
     },
     username:{
-        fontSize:15,
+        fontSize:18,
         color:MAIN_COLOR,
     },
     message:{
         marginTop:5,
-        fontSize:12,
+        fontSize:15,
         color:SUB_COLOR,
     },
     status:{
@@ -82,7 +82,7 @@ module.exports = StyleSheet.create({
     statusText:{
         position:'absolute',
         right:10,
-        fontSize:14,
+        fontSize:15,
         color:SUB_COLOR,
     },
     

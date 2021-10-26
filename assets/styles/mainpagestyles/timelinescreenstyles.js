@@ -160,12 +160,11 @@ module.exports = StyleSheet.create({
     },
     create_story_avatar_image:{
         borderTopWidth:1,
-        marginTop:3,
         borderTopLeftRadius:20,
         borderTopRightRadius:20,
         width:96,
         height:96,
-        resizeMode:'contain'
+        resizeMode:'cover'
     },
     story_header:{
         flexDirection:'row',
@@ -194,11 +193,10 @@ module.exports = StyleSheet.create({
     },
     your_story_image:{
         borderTopWidth:1,
-        marginTop:3,
         borderRadius:20,
-        width:96,
-        height:143,
-        resizeMode:'stretch'
+        width:100+"%",
+        height:100+"%",
+        resizeMode:'cover'
     },
     your_story_text:{
         position:'absolute',
@@ -217,15 +215,15 @@ module.exports = StyleSheet.create({
     },
     friend_story_image:{
         borderTopWidth:1,
-        marginTop:3,
         borderRadius:20,
-        width:96,
-        height:143,
-        resizeMode:'stretch'
+        width:100+"%",
+        height:100+"%",
+        resizeMode:'cover'
     },
     friend_story_text:{
         position:'absolute',
         bottom:0,
+        color:'#FFFFFF',
     },
     a_post:{
         marginTop:15,

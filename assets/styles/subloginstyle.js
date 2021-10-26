@@ -74,6 +74,24 @@ module.exports = StyleSheet.create({
       forget_password_text:{
         color:MAIN_COLOR,
       },
+      warning:{
+        marginLeft:25,
+        marginTop:10,
+        flexDirection:'row',
+        alignItems:'center',
+      },
+      warningAlert:{
+        fontSize:18,
+        color:'#FF0000',
+        fontWeight:'bold',
+      },
+      warningText:{
+        marginLeft:10,
+        fontSize:14,
+        color:'#FF0000',
+        fontStyle:'italic',
+        textDecorationLine: 'underline',
+      },
       next_button_field:{
         flex: .95,
       },

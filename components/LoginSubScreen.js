@@ -10,20 +10,6 @@ const {URI} = require("../Constants/Constants.js");
 const styles = require("../assets/styles/appstyle.js");
 const subloginstyles = require("../assets/styles/subloginstyle.js");
 
-//Using Notify
-import {
-  ToastAndroid,
-  Platform,
-  AlertIOS,
-} from 'react-native';
-
-function notifyMessage(msg) {
-  if (Platform.OS === 'android') {
-    ToastAndroid.show(msg, ToastAndroid.SHORT)
-  } else {
-    AlertIOS.alert(msg);
-  }
-}
 const DEFAULT_WARNING = {
   "INVALID_PHONE_FORMAT":"Định dạng số điện thoại không đúng !",
   "INVALID_USERNAME_FORMAT":"Định dạng họ và tên không đúng !",

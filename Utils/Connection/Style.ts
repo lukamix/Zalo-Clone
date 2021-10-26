@@ -70,7 +70,6 @@ export default StyleSheet.create({
         height:25,
     },
 
-    
     comment_container:{
         flex:1,
         position: 'absolute',
@@ -149,7 +148,7 @@ export default StyleSheet.create({
         color: '#fff',
     },
     fullView: {
-        zIndex:15,
+        zIndex:-1,
         position:'absolute',
         width: dimensions.width,
         height: dimensions.height,
@@ -161,13 +160,20 @@ export default StyleSheet.create({
         top: 5
     },
     remote: {
-        width: 150,
-        height: 150,
+        width: dimensions.width,
+        height: dimensions.height,
         marginHorizontal: 2.5
     },
     noUserText: {
         paddingHorizontal: 10,
         paddingVertical: 5,
         color: '#0093E9',
+    },
+
+    button: {
+        paddingHorizontal: 20,
+        paddingVertical: 10,
+        backgroundColor: '#0093E9',
+        borderRadius: 25,
     },
 })

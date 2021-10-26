@@ -8,76 +8,44 @@ const subloginstyles = require("../../assets/styles/subloginstyle.js");
 
 const DATA = [
     {
-        avatar:require("../../assets/images/common/unnamed.png"),
-        username: 'Nguyễn Bá Đức',
+        avatar:require("../../assets/images/TEMP/duc.jpg"),
+        username: 'Đức',
         id:'1',
         title:'1',
         status: '5 phút trước',
-        message: 'Đi chơi không cu?'
+        message: 'Chào em'
     },
     {
-        avatar:require("../../assets/images/common/unnamed.png"),
-        username: 'Nại Ngọc Thăng Nong',
+        avatar:require("../../assets/images/TEMP/lntlong.jpg"),
+        username: 'Long',
         id:'2',
         title:'1',
         status: '8 phút trước',
-        message: 'Đi chơi không cu?'
+        message: 'Em đang làm gì đấy ?'
     },
     {
-        avatar:require("../../assets/images/common/unnamed.png"),
-        username: 'Nguyễn Đềnh Dũng',
+        avatar:require("../../assets/images/TEMP/dung.jpg"),
+        username: 'Dũng',
         id:'3',
         title:'1',
         status: '11 phút trước',
-        message: 'Đi chơi không cu?'
+        message: 'Nhớ anh không ?'
     },
     {
-        avatar:require("../../assets/images/common/unnamed.png"),
-        username: 'Nguyễn Khươn Dui',
+        avatar:require("../../assets/images/TEMP/duy.jpg"),
+        username: 'Duy',
         id:'4',
         title:'1',
         status: '12 phút trước',
-        message: 'Đi chơi không cu?'
+        message: 'Hình như em yếu đuối cần 1 người'
     },
     {
-        avatar:require("../../assets/images/common/unnamed.png"),
-        username: 'Nguyễn Thành Nong',
+        avatar:require("../../assets/images/TEMP/tlong.jpg"),
+        username: 'Long',
         id:'5',
         title:'1',
         status: '13 phút trước',
-        message: 'Đi chơi không cu?'
-    },
-    {
-        avatar:require("../../assets/images/common/unnamed.png"),
-        username: 'Nguyễn Thành Nong',
-        id:'6',
-        title:'1',
-        status: '14 phút trước',
-        message: 'Đi chơi không cu?'
-    },
-    {
-        avatar:require("../../assets/images/common/unnamed.png"),
-        username: 'Nguyễn Thành Nong',
-        id:'7',
-        title:'1',
-        status: '15 phút trước',
-        message: 'Đi chơi không cu?'
-    },
-    {
-        avatar:require("../../assets/images/common/unnamed.png"),
-        username: 'Nguyễn Thành Nong',
-        id:'8',
-        title:'1',
-        status: '16 phút trước',
-        message: 'Đi chơi không cu?'
-    },
-    {
-        avatar:require("../../assets/images/common/unnamed.png"),
-        username: 'Nguyễn Thành Nong',
-        id:'9',
-        title:'1',
-        status: '17 phút trước',
-        message: 'Đi chơi không cu?'
+        message: 'Anh chỉ xem em là bạn'
     },
   ];
 

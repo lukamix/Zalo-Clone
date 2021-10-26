@@ -8,7 +8,7 @@ const {URI} = require("../../Constants/Constants.js");
 //Test Post Data
 const POST_DATA = [
     {
-        avatar:require("../../assets/images/common/unnamed.png"),
+        avatar:require("../../assets/images/TEMP/duc.jpg"),
         username: 'Nguyễn Bá Đức',
         type :'đã cập nhật ảnh đại diện',
         status: 'Vừa xong',
@@ -25,7 +25,7 @@ const POST_DATA = [
          
     },
     {
-        avatar:require("../../assets/images/common/unnamed.png"),
+        avatar:require("../../assets/images/TEMP/duc.jpg"),
         username: 'Nguyễn Bá Đức',
         type :'đã cập nhật ảnh đại diện',
         status: 'Vừa xong',
@@ -42,7 +42,7 @@ const POST_DATA = [
          
     },
     {
-        avatar:require("../../assets/images/common/unnamed.png"),
+        avatar:require("../../assets/images/TEMP/duc.jpg"),
         username: 'Nguyễn Bá Đức',
         type :'đã cập nhật ảnh đại diện',
         status: 'Vừa xong',
@@ -59,7 +59,7 @@ const POST_DATA = [
          
     },
     {
-        avatar:require("../../assets/images/common/unnamed.png"),
+        avatar:require("../../assets/images/TEMP/duc.jpg"),
         username: 'Nguyễn Bá Đức',
         type :'đã cập nhật ảnh đại diện',
         status: 'Vừa xong',
@@ -76,7 +76,7 @@ const POST_DATA = [
          
     },
     {
-        avatar:require("../../assets/images/common/unnamed.png"),
+        avatar:require("../../assets/images/TEMP/duc.jpg"),
         username: 'Nguyễn Bá Đức',
         type :'đã cập nhật ảnh đại diện',
         status: 'Vừa xong',
@@ -93,7 +93,7 @@ const POST_DATA = [
          
     },
     {
-        avatar:require("../../assets/images/common/unnamed.png"),
+        avatar:require("../../assets/images/TEMP/duc.jpg"),
         username: 'Nguyễn Bá Đức',
         type :'đã cập nhật ảnh đại diện',
         status: 'Vừa xong',
@@ -113,52 +113,28 @@ const POST_DATA = [
 //Test Story Data
 const STORY_DATA=[
     {
-        last_story_image:require("../../assets/images/common/unnamed.png"),
+        last_story_image:require("../../assets/images/TEMP/lntlong.jpg"),
         username:'Long',
         userid:'1',
         storyid:'1',
     },
     {
-        last_story_image:require("../../assets/images/common/unnamed.png"),
-        username:'Long',
+        last_story_image:require("../../assets/images/TEMP/duy.jpg"),
+        username:'Duy',
         userid:'2',
         storyid:'2',
     },
     {
-        last_story_image:require("../../assets/images/common/unnamed.png"),
+        last_story_image:require("../../assets/images/TEMP/dung.jpg"),
         username:'Dũng',
         userid:'3',
         storyid:'3',
     },
     {
-        last_story_image:require("../../assets/images/common/unnamed.png"),
-        username:'Duy',
+        last_story_image:require("../../assets/images/TEMP/tlong.jpg"),
+        username:'Long',
         userid:'4',
         storyid:'4',
-    },
-    {
-        last_story_image:require("../../assets/images/common/unnamed.png"),
-        username:'Duy',
-        userid:'4',
-        storyid:'5',
-    },
-    {
-        last_story_image:require("../../assets/images/common/unnamed.png"),
-        username:'Duy',
-        userid:'4',
-        storyid:'6',
-    },
-    {
-        last_story_image:require("../../assets/images/common/unnamed.png"),
-        username:'Duy',
-        userid:'4',
-        storyid:'7',
-    },
-    {
-        last_story_image:require("../../assets/images/common/unnamed.png"),
-        username:'Duy',
-        userid:'4',
-        storyid:'8',
     },
 ];
 
@@ -216,7 +192,7 @@ function TimelineScreen({ navigation }) {
                         <View style = {styles.flatlist_header}>
                         <View style={styles.what_you_think_place}>
                             <TouchableOpacity>
-                                <Image source={require("../../assets/images/common/unnamed.png")}
+                                <Image source={require("../../assets/images/TEMP/duc.jpg")}
                                     style={styles.what_you_think_avatar}
                                 />
                             </TouchableOpacity>
@@ -272,14 +248,14 @@ function TimelineScreen({ navigation }) {
                                     return (
                                         <View style={styles.story_header}>
                                             <TouchableOpacity style={styles.create_story}>
-                                            <Image source={require("../../assets/images/common/unnamed.png")}
+                                            <Image source={require("../../assets/images/TEMP/duc.jpg")}
                                                 style={styles.create_story_avatar_image}/>
                                             <Image source= {require("../../assets/images/timeline/add.png")}
                                                     style= {styles.add_story_button}/>
                                             <Text style={styles.create_story_text}>Tạo tin</Text>
                                             </TouchableOpacity>
                                             <TouchableOpacity style={styles.your_story}>
-                                                <Image source={require("../../assets/images/common/unnamed.png")}
+                                                <Image source={require("../../assets/images/TEMP/duc.jpg")}
                                                     style={styles.your_story_image}/>
                                                 <Text style={styles.your_story_text}>Tin cuả bạn</Text>
                                             </TouchableOpacity>
@@ -379,7 +355,7 @@ function TimelineScreen({ navigation }) {
                         </View>
                         <View style={styles.second_post_comment}>
                         <TouchableOpacity>
-                            <Image source={require("../../assets/images/common/unnamed.png")}
+                            <Image source={require("../../assets/images/TEMP/duc.jpg")}
                                 style={styles.second_post_comment_avatar}
                             />
                         </TouchableOpacity>

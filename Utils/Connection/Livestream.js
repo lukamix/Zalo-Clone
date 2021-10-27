@@ -5,7 +5,7 @@ import {Platform, ScrollView, Text,Image , TouchableOpacity, View, PermissionsAn
 import RtcEngine, {RtcLocalView, RtcRemoteView, VideoRenderMode, ChannelProfile,ClientRole,} from 'react-native-agora'
 import { FlatList } from 'react-native-gesture-handler';
 // Import the UI styles.
-import styles from './Style'
+import styles from './Style.js'
 import { AppID, Default_Channel_Name, Token_Daily,} from './AppInfo';
 
 const DATA=[

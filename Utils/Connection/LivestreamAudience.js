@@ -1,11 +1,11 @@
 "use strict";
 import React, {Component} from 'react'
-import {Platform, ScrollView, Text,Image , TouchableOpacity, View, PermissionsAndroid, Alert, BackHandler} from 'react-native'
+import {Platform, ScrollView, Text,Image , TouchableOpacity, View, PermissionsAndroid, BackHandler} from 'react-native'
 // Import the RtcEngine class and view rendering components into your project.
 import RtcEngine, {RtcLocalView, RtcRemoteView, VideoRenderMode, ChannelProfile,ClientRole,} from 'react-native-agora'
 import { FlatList } from 'react-native-gesture-handler';
 // Import the UI styles.
-import styles from './Style'
+import styles from './Style.js'
 import { AppID, Default_Channel_Name, Token_Daily,} from './AppInfo';
 
 const DATA=[

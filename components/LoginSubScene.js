@@ -1,30 +1,26 @@
 "use strict";
 import React, { useState } from "react";
 import { TouchableOpacity, Text, View, Image, TextInput } from "react-native";
+import { AsyncStorage } from "react-native";
 
-const {URI} = require("../Constants/Constants.js");
-
+const LoginController = require("../Controller/Login.js");
 //Using Notify
-import {
-  ToastAndroid,
-  Platform,
-  AlertIOS,
-} from 'react-native';
+import { ToastAndroid, Platform, AlertIOS } from "react-native";
 
-function notifyMessage(msg) {
-  if (Platform.OS === 'android') {
-    ToastAndroid.show(msg, ToastAndroid.SHORT)
-  } else {
-    AlertIOS.alert(msg);
-  }
-}
+// function notifyMessage(msg) {
+//   if (Platform.OS === 'android') {
+//     ToastAndroid.show(msg, ToastAndroid.SHORT)
+//   } else {
+//     AlertIOS.alert(msg);
+//   }
+// }
 
 const styles = require("../assets/styles/appstyle.js");
 const subloginstyles = require("../assets/styles/subloginstyle.js");
 
 function LoginSubScene({ navigation }) {
-  const [phonenumber, setText] = useState("");
-  const [password,setPassword] = useState("");
+  const [phonenumber, setText] = useState("12345");
+  const [password, setPassword] = useState("11151");
   return (
     <View style={subloginstyles.container}>
       <View style={subloginstyles.header}>
@@ -81,52 +77,17 @@ function LoginSubScene({ navigation }) {
         </TouchableOpacity>
       </View>
       <View style={subloginstyles.next_button_field}>
-        <TouchableOpacity style={subloginstyles.next_button}
-         onPress={()=>{ 
-            //Precheck PhoneNumber, Password
-            if(!phonenumber&&!password){
-              notifyMessage("Vui lòng nhập số điện thoại và mật khẩu")
-            }
-            else if(!phonenumber){
-              notifyMessage("Vui lòng nhập số điện thoại !");
-            }
-            else if(!phonenumber.startsWith("0")||
-            phonenumber.length<10 || phonenumber.length>11){
-              notifyMessage("Định dạng số điện thoại không đúng !");
-            }
-            else if(!password){
-              notifyMessage("Vui lòng nhập mật khẩu !");
-            }
-            else{
-              //Call API Login Here
-              fetch(URI+'users/login', {
-                method: 'POST',
-                headers: {
-                  Accept: 'application/json',
-                  'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                  phonenumber: phonenumber,
-                  password: password,
-                })
-              })
-                .then((response) =>{
-                  const statusCode = response.status;
-                  const data = response.json();
-                  return Promise.all([statusCode, data]);
-                }
-                  )
-                .then(([res,data]) => {
-                  console.log(res,data);
-                  navigation.navigate("MainPage");
-                })
-                .catch((error) => {
-                  console.error(error);
-                });
-            }
-         }}
+        <TouchableOpacity
+          style={subloginstyles.next_button}
+          onPress={() =>
+            LoginController.login({
+              phonenumber: phonenumber,
+              password: password,
+              navigation: navigation,
+            })
+          }
         >
-          <Image 
+          <Image
             style={subloginstyles.next_button_image}
             source={require("../assets/images/common/next-grey-button.png")}
           />

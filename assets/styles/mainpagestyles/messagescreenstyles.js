@@ -4,7 +4,6 @@ const {MAIN_COLOR,SUB_COLOR} = require("../../../Constants/Constants.js");
 
 module.exports = StyleSheet.create({
     container:{
-        marginTop: 25,
         flex: 1,
     },
     search_button:{

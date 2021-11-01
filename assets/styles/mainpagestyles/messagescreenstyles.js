@@ -69,12 +69,12 @@ module.exports = StyleSheet.create({
     },
     username:{
         fontSize:18,
-        color:MAIN_COLOR,
+        color:'#000000',
     },
     message:{
         marginTop:5,
         fontSize:15,
-        color:SUB_COLOR,
+        color:'#767676',
     },
     status:{
         flexDirection:'row',
@@ -85,5 +85,22 @@ module.exports = StyleSheet.create({
         fontSize:15,
         color:SUB_COLOR,
     },
-    
+    online:{
+        width:12,
+        height:12,
+        backgroundColor:'#24FF00',
+        borderRadius:10,
+        position:'absolute',
+        left:65,
+        top:61,
+    },
+    offline:{
+        width:12,
+        height:12,
+        backgroundColor:'#9EA19C',
+        borderRadius:10,
+        position:'absolute',
+        left:65,
+        top:61,
+    },
 });

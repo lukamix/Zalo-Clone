@@ -38,7 +38,7 @@ export default function MainPage({ navigation }) {
         tabBarLabel: 'Phonebook',
         tabBarIcon: ({ tintColor }) => (
           <Image
-            source={require('../assets/images/common/PhoneBook.png')}
+            source={require('../assets/images/common/phone-list.png')}
             style={{width: 26, height: 26, tintColor: tintColor}}
           />
         )

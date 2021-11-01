@@ -33,42 +33,87 @@ module.exports = StyleSheet.create({
         width:30,
         height:30,
     },
+    info_container:{
+    },
     info_icon:{
         width:28,
         height:28,
     },
+    message_container:{
+
+    },
+    date_time_container:{
+        flexDirection:'row',
+        alignSelf:'center',
+    },
+    message_hour_time:{
+        textAlign:'center',
+        fontSize:10,
+        backgroundColor:'#BBBBBB',
+        borderTopLeftRadius:10,
+        borderBottomLeftRadius:10,
+    },
+    message_hour_time_full:{
+        textAlign:'center',
+        fontSize:10,
+        backgroundColor:'#BBBBBB',
+        borderRadius:10,
+    },
+    message_hour:{
+        marginRight:10,
+        fontSize:11,
+        color:'#7D5277',
+    },  
+    message_date_time:{
+        textAlign:'center',
+        fontSize:10,
+        backgroundColor:'#BBBBBB',
+        borderTopRightRadius:10,
+        borderBottomRightRadius:10,
+    },
+    user_send_image:{
+        position:'absolute',
+        marginTop:7,
+        width:27,
+        height:27,
+        borderRadius:30,
+        marginRight:7,
+    }, 
     all_message:{
-        marginLeft:20,
+        marginLeft:10,
         marginRight:20,
     },
     message_box:{
         paddingLeft:10,
         paddingTop:5,
         paddingBottom:5,
-        marginBottom:10,
+        marginTop:5,
         borderRadius:10,
+        
+    },
+    message:{
+        marginRight:10,
         flexWrap:'wrap',
     },
-
-
-
-
     message_footer:{
-        height:40,
+        height:50,
         backgroundColor:MAIN_COLOR,
         flexDirection:'row',
         alignItems:'center',
     },
     message_input_container:{
-        borderRadius:10,
+        borderRadius:30,
         marginLeft:10,
-        height:32,
+        height:38,
         flex:1,
         flexDirection:'row',
         backgroundColor:'white',
+        alignItems:'center',
+        justifyContent:'center',
     },
     message_input:{
-        flex:1
+        flex:1,
+        width:40,
     },
     message_input_button:{
         marginTop:1,
@@ -96,5 +141,56 @@ module.exports = StyleSheet.create({
         marginRight:10,
         width:30,
         height:30,
-    },  
+    },
+    online:{
+        width:12,
+        height:12,
+        backgroundColor:'#24FF00',
+        borderRadius:10,
+        position:'absolute',
+        left:80,
+        top:39,
+    },
+    offline:{
+        width:12,
+        height:12,
+        backgroundColor:'#9EA19C',
+        borderRadius:10,
+        position:'absolute',
+        left:80,
+        top:39,
+    },
+    emoji_flatlist:{
+        height:300,
+        backgroundColor:'#FFFFFF',
+    },
+    emoji_container:{
+        marginTop:5,
+        marginLeft:9/8+"%",
+        width:13+"%",
+        height:50,
+    },
+    emoji:{
+        textAlign:'center',
+        fontSize:32,
+        fontWeight:'bold',
+        
+    },
+    emoji_footer:{
+        height:50,
+        marginLeft:10,
+        alignItems:'center',
+        flexDirection:'row',
+    },
+    emoji_tab:{
+        marginRight:10,
+        borderTopColor:SUB_COLOR,
+    },
+    emoji_tab_text:{
+        fontSize:25,
+    },
+    delete_emoji_button:{
+        width:32,
+        height:25,
+    },
 });

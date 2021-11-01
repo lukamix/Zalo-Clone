@@ -46,45 +46,83 @@ module.exports = StyleSheet.create({
     body:{
         marginTop:15,
     },
-    friend_request:{
-        marginTop:20,
-        marginLeft:30,
-        marginRight:30,
+    body_tab:{
         flexDirection:'row',
+        justifyContent:'center',
+        alignItems:'center',
+        marginLeft:50,
+        marginRight:50,
+        borderWidth:1,
+        borderRadius:5,
+        borderColor:MAIN_COLOR,
+        overflow:'hidden',
     },
-    friend_request_image:{
-        width:56,
-        height:35,
+    tabBar:{
+
     },
-    friend_request_text:{
-        marginLeft:36,
-        fontSize:25,
-        color:MAIN_COLOR,
+    //
+    flatlist:{
+        marginTop:10,
     },
-    follower_image:{
-        marginLeft:15,
-        width:40,
-        height:40,
+    header_phonebook_flatlist:{
+        borderStyle:'dashed',
+        borderBottomColor:SUB_COLOR,
+        borderBottomWidth:5,
     },
-    black_list_image:{
-        marginLeft:15,
-        width:43,
-        height:32,
+    footer_phonebook_flatlist:{
+        height:130,
+        width:130,
     },
-    favorite_friend_image:{
-        marginLeft:15,
-        width:35,
-        height:33,
+    item:{
+        flexDirection:'row',
+        alignItems:'center',
+        marginTop:7,
+        marginBottom:7,
+        marginLeft:30,
+        marginRight:5,
     },
-    all_friend_image:{
-        marginTop:2,
-        marginLeft:8,
-        width:50,
-        height:26,
+    avatar:{
+        width:60,
+        height:60,
+        borderRadius:50,
+    },  
+    fullname:{
+        fontSize:15,
+        fontWeight:'bold',
+        marginLeft:10,
     },
-    may_be_you_know_image:{
-        marginLeft:15,
-        width:40,
-        height:35,
+    friend_request_number:{
+        width:20,
+        height:20,
+        backgroundColor:'#FF00DC',
+        borderRadius:10,
+        position:'absolute',
+        left:40,
+        bottom:40,
+        alignItems:'center',
+        justifyContent:'center',
+    },
+    friend_request_number_text:{
+        color:'#FFFFFF',
+        textAlign: 'center',
+        fontSize:10,
+    },
+    online:{
+        width:12,
+        height:12,
+        backgroundColor:'#24FF00',
+        borderRadius:10,
+        position:'absolute',
+        left:45,
+        top:48,
+    },
+    offline:{
+        width:12,
+        height:12,
+        backgroundColor:'#9EA19C',
+        borderRadius:10,
+        position:'absolute',
+        left:45,
+        top:48,
     },
 });

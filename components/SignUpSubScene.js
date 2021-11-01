@@ -18,9 +18,10 @@ const DEFAULT_WARNING = {
   "NOT_COMPARE_REPASSWORD":"Nhập lại mật khẩu chưa đúng !",
   "MISSING_ATTRIBUTE_FIELD":"Vui lòng nhập đủ trường thông tin !",
   "EXTEND_INVALID_INPUT_FORMAT":[
-    "Số điện thoại không được chứa các kí tự đặc biệt và khoảng trắng",
-    "Họ và tên không được chứa các kí tự đặc biệt",
-  ]
+    "Số điện thoại không được chứa các kí tự đặc biệt và khoảng trắng !",
+    "Họ và tên không được chứa các kí tự đặc biệt !",
+  ],
+  "NETWORK_ERROR":"Lỗi mạng !",
 };
 
 

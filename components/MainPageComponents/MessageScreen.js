@@ -13,7 +13,8 @@ const DATA = [
         id:'1',
         title:'1',
         status: '5 phút trước',
-        message: 'Chào em'
+        message: 'Chào em',
+        online:true,
     },
     {
         avatar:require("../../assets/images/TEMP/lntlong.jpg"),
@@ -21,7 +22,8 @@ const DATA = [
         id:'2',
         title:'1',
         status: '8 phút trước',
-        message: 'Em đang làm gì đấy ?'
+        message: 'Em đang làm gì đấy ?',
+        online:false,
     },
     {
         avatar:require("../../assets/images/TEMP/dung.jpg"),
@@ -29,7 +31,8 @@ const DATA = [
         id:'3',
         title:'1',
         status: '11 phút trước',
-        message: 'Nhớ anh không ?'
+        message: 'Nhớ anh không ?',
+        online:false,
     },
     {
         avatar:require("../../assets/images/TEMP/duy.jpg"),
@@ -37,7 +40,8 @@ const DATA = [
         id:'4',
         title:'1',
         status: '12 phút trước',
-        message: 'Hình như em yếu đuối cần 1 người'
+        message: 'Hình như em yếu đuối cần 1 người',
+        online:false,
     },
     {
         avatar:require("../../assets/images/TEMP/tlong.jpg"),
@@ -45,7 +49,8 @@ const DATA = [
         id:'5',
         title:'1',
         status: '13 phút trước',
-        message: 'Anh chỉ xem em là bạn'
+        message: 'Anh chỉ xem em là bạn',
+        online:false,
     },
   ];
 
@@ -114,6 +119,10 @@ function MessageScreen({ navigation }) {
                                         source={item.avatar}
                                         style={styles.FlatMessUnitImage}
                                     />
+                                    {item.online ? (<View style={styles.online}></View>)
+                                    :
+                                    (<View style={styles.offline}></View>)
+                                    }
                                     <View style ={styles.userproperties}>
                                         <View style ={styles.status}>
                                             <Text style={styles.username}>{item.username}</Text>

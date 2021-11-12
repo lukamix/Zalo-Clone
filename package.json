@@ -1,5 +1,5 @@
 {
-  "name": "Okela",
+  "name": "okela",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,11 +10,14 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-community/cameraroll": "^4.1.2",
     "@react-navigation/bottom-tabs": "^6.0.9",
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/native-stack": "^6.2.4",
     "@react-navigation/stack": "^6.0.11",
     "agora-access-token": "^2.0.4",
+    "agora-react-native-rtm": "^1.4.8",
+    "agora-rtm-sdk": "^1.4.3",
     "crypto-js": "^4.1.1",
     "expo": "^1.0.0",
     "expo-status-bar": "^1.0.4",
@@ -23,6 +26,7 @@
     "react-dom": "^17.0.2",
     "react-native": "^0.66.1",
     "react-native-agora": "^3.5.0",
+    "react-native-easy-view-transformer": "^1.2.0",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-head-tab-view": "^4.0.0-rc.13",
     "react-native-head-tab-view-v3": "^3.0.5",
@@ -31,6 +35,7 @@
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.8.0",
     "react-native-swiper": "^1.6.0",
+    "react-native-vector-icons": "^9.0.0",
     "react-native-web": "^0.17.5",
     "react-navigation": "^4.4.4"
   },

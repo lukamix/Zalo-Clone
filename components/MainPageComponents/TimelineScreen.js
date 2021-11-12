@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { TouchableOpacity,FlatList, Text, View, Image, TextInput } from "react-native";
 const styles = require("../../assets/styles/mainpagestyles/timelinescreenstyles.js");
 const subloginstyles = require("../../assets/styles/subloginstyle.js");
+const {MAIN_COLOR,SUB_COLOR,GREY_COLOR} = require("../../Constants/Constants.js");
 
 const {URI} = require("../../Constants/Constants.js");
 //Test Post Data
@@ -22,7 +23,7 @@ const POST_DATA = [
         pictures:[require("../../assets/images/timeline/test_image.png"),require("../../assets/images/common/unnamed.png")
             ,require("../../assets/images/common/unnamed.png"),require("../../assets/images/common/unnamed.png"),
             require("../../assets/images/common/unnamed.png"),require("../../assets/images/common/unnamed.png")],
-         
+        isLiked :true,
     },
     {
         avatar:require("../../assets/images/TEMP/duc.jpg"),
@@ -39,7 +40,7 @@ const POST_DATA = [
         pictures:[require("../../assets/images/timeline/test_image.png"),require("../../assets/images/common/unnamed.png")
             ,require("../../assets/images/common/unnamed.png"),require("../../assets/images/common/unnamed.png"),
             require("../../assets/images/common/unnamed.png"),require("../../assets/images/common/unnamed.png")],
-         
+        isLiked :false,
     },
     {
         avatar:require("../../assets/images/TEMP/duc.jpg"),
@@ -56,7 +57,7 @@ const POST_DATA = [
         pictures:[require("../../assets/images/timeline/test_image.png"),require("../../assets/images/common/unnamed.png")
             ,require("../../assets/images/common/unnamed.png"),require("../../assets/images/common/unnamed.png"),
             require("../../assets/images/common/unnamed.png"),require("../../assets/images/common/unnamed.png")],
-         
+        isLiked :false,
     },
     {
         avatar:require("../../assets/images/TEMP/duc.jpg"),
@@ -73,7 +74,7 @@ const POST_DATA = [
         pictures:[require("../../assets/images/timeline/test_image.png"),require("../../assets/images/common/unnamed.png")
             ,require("../../assets/images/common/unnamed.png"),require("../../assets/images/common/unnamed.png"),
             require("../../assets/images/common/unnamed.png"),require("../../assets/images/common/unnamed.png")],
-         
+        isLiked :false,
     },
     {
         avatar:require("../../assets/images/TEMP/duc.jpg"),
@@ -90,7 +91,7 @@ const POST_DATA = [
         pictures:[require("../../assets/images/timeline/test_image.png"),require("../../assets/images/common/unnamed.png")
             ,require("../../assets/images/common/unnamed.png"),require("../../assets/images/common/unnamed.png"),
             require("../../assets/images/common/unnamed.png"),require("../../assets/images/common/unnamed.png")],
-         
+        isLiked :false,
     },
     {
         avatar:require("../../assets/images/TEMP/duc.jpg"),
@@ -107,7 +108,7 @@ const POST_DATA = [
         pictures:[require("../../assets/images/timeline/test_image.png"),require("../../assets/images/common/unnamed.png")
             ,require("../../assets/images/common/unnamed.png"),require("../../assets/images/common/unnamed.png"),
             require("../../assets/images/common/unnamed.png"),require("../../assets/images/common/unnamed.png")],
-         
+        isLiked :false,
     },
 ];
 //Test Story Data
@@ -196,7 +197,15 @@ function TimelineScreen({ navigation }) {
                                     style={styles.what_you_think_avatar}
                                 />
                             </TouchableOpacity>
-                            <TouchableOpacity style={styles.what_you_think}>
+                            <TouchableOpacity style={styles.what_you_think}
+                            onPress={()=>{
+                                navigation.navigate("PostStatusScreen",{
+                                    //pass UserID here
+                                    userID:'1',
+                                    intab:'default',
+                                    //pass more params here
+                                })
+                            }}>
                                 <Text style={styles.what_you_think_text}>Bạn đang nghĩ gì?</Text>
                             </TouchableOpacity>
                         </View>
@@ -219,7 +228,15 @@ function TimelineScreen({ navigation }) {
                                 </TouchableOpacity>
                             </View>
                             <View style={styles.image_place}>
-                                <TouchableOpacity style={styles.image}>
+                                <TouchableOpacity style={styles.image}
+                                    onPress={()=>{
+                                        navigation.navigate("PostStatusScreen",{
+                                            //pass UserID here
+                                            intab:'Photos',
+                                            //pass more params here
+                                        })
+                                    }}
+                                >
                                     <Image source ={require("../../assets/images/timeline/photo.png")}
                                         style={styles.image_image}/>
                                     <Text style={styles.image_text}>
@@ -228,7 +245,14 @@ function TimelineScreen({ navigation }) {
                                 </TouchableOpacity>
                             </View>
                             <View style={styles.video_place}>
-                                <TouchableOpacity style={styles.video}>
+                                <TouchableOpacity style={styles.video}
+                                onPress={()=>{
+                                    navigation.navigate("PostStatusScreen",{
+                                        //pass UserID here
+                                        intab:'Videos',
+                                        //pass more params here
+                                    })
+                                }}>
                                     <Image source ={require("../../assets/images/timeline/video.png")}
                                         style={styles.video_image}/>
                                     <Text style={styles.video_text}>
@@ -331,12 +355,29 @@ function TimelineScreen({ navigation }) {
                             </View>
                         </View>
                         <View style={styles.interact_post_button}>
-                            <TouchableOpacity style={styles.like_button_box}>
-                                <Image source ={require("../../assets/images/timeline/like.png")}
-                                    style= {styles.like_button_image}/>
-                                <Text style={styles.like_button_text}>
-                                    Thích
-                                </Text>
+                            <TouchableOpacity style={[styles.like_button_box,
+                            ]}
+                            onPress={
+                                ()=>{
+                                    //PostLike
+                                }
+                            }
+                            >
+                                {
+                                    item.isLiked?
+                                    <Image source ={require("../../assets/images/timeline/liked.png")}
+                                    style= {styles.like_button_image}/>:
+                                    <Image source ={require("../../assets/images/timeline/like.png")}
+                                    style= {styles.like_button_image}/>}
+                                {   
+                                    item.isLiked?
+                                    <Text style={styles.liked_button_text}>
+                                        Thích
+                                    </Text>:
+                                    <Text style={styles.like_button_text}>
+                                        Thích
+                                    </Text>
+                                }
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.comment_button_box}>
                                 <Image source ={require("../../assets/images/timeline/comment.png")}

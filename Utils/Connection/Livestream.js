@@ -110,7 +110,8 @@ init = async () => {
     // Pass in your token and channel name through this.state.token and this.state.channelName.
     // Set the ID of the local user, which is an integer and should be unique. If you set uid as 0,
     // the SDK assigns a user ID for the local user and returns it in the JoinChannelSuccess callback.
-
+    
+    // This method will call after fetch generate token api ....in the future.
     startCall = async () => {
         await this._engine?.joinChannel(this.state.token, this.state.channelName, null, 0)
     }

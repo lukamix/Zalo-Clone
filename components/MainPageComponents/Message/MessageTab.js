@@ -92,6 +92,7 @@ var DATA=[
 ]
 
 
+
 class MessageTab extends Component {
 
     constructor(props) {
@@ -106,7 +107,7 @@ class MessageTab extends Component {
         this.addElement = this.addElement.bind(this);
         this.state = {
             MessageSend:"",
-            isTexting:"",
+            isTexting:false,
             daterender:"",
             isRendered:false,
             isrenderEmoji:false,
@@ -220,6 +221,18 @@ class MessageTab extends Component {
             EmojiChoosingtab:8
         })        
     }
+    _renderIcon = ({item,index})=>{
+        return <TouchableOpacity style={styles.emoji_container}
+        onPress={()=>{
+            this.setState({
+                isTexting: true,
+                MessageSend: this.state.MessageSend+item.toString()
+            })
+        }   
+        }>
+            <Text style={styles.emoji}>{item}</Text>
+        </TouchableOpacity>
+    }
     render(){
         const {username,useravatar,userstatus} = this.props.route.params;
     return (
@@ -263,7 +276,7 @@ class MessageTab extends Component {
                 </View>
             </View>
             
-            <View style={{flex: 1,}}>
+            <View style={{flex: 1}}>
             <FlatList
                 data={this.state.DATA}
                 extraData={useState}
@@ -397,18 +410,9 @@ class MessageTab extends Component {
                 }
                 extraData={this.state}
                 keyExtractor={(item, index) => {return index.toString()} }
-                renderItem={({item,index})=>{
-                    return <TouchableOpacity style={styles.emoji_container}
-                    onPress={()=>{
-                        this.setState({
-                            isTexting: true,
-                            MessageSend: this.state.MessageSend+item.toString()
-                        })
-                    }   
-                    }>
-                        <Text style={styles.emoji}>{item}</Text>
-                    </TouchableOpacity>
-                }}
+                renderItem={
+                    this._renderIcon
+                }
                 numColumns={7}
                 />
                 <View style={styles.emoji_footer}>

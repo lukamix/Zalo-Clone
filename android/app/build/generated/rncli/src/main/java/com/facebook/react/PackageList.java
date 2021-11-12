@@ -11,6 +11,10 @@ import com.facebook.react.shell.MainReactPackage;
 import java.util.Arrays;
 import java.util.ArrayList;
 
+// @react-native-community/cameraroll
+import com.reactnativecommunity.cameraroll.CameraRollPackage;
+// agora-react-native-rtm
+import io.agora.agora_rtm.AgoraRTMPackage;
 // react-native-agora
 import io.agora.rtc.react.RCTAgoraRtcPackage;
 // react-native-gesture-handler
@@ -21,6 +25,8 @@ import cn.nodemedia.react_native_nodemediaclient.NodeMediaReactPackage;
 import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
 // react-native-screens
 import com.swmansion.rnscreens.RNScreensPackage;
+// react-native-vector-icons
+import com.oblador.vectoricons.VectorIconsPackage;
 
 public class PackageList {
   private Application application;
@@ -66,11 +72,14 @@ public class PackageList {
   public ArrayList<ReactPackage> getPackages() {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(mConfig),
+      new CameraRollPackage(),
+      new AgoraRTMPackage(),
       new RCTAgoraRtcPackage(),
       new RNGestureHandlerPackage(),
       new NodeMediaReactPackage(),
       new SafeAreaContextPackage(),
-      new RNScreensPackage()
+      new RNScreensPackage(),
+      new VectorIconsPackage()
     ));
   }
 }

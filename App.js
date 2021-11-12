@@ -11,7 +11,11 @@ import PreLiveStream from "./Utils/Connection/PreLivestream.js";
 import LiveStream from "./Utils/Connection/Livestream.js";
 import LiveStreamAudience from "./Utils/Connection/LivestreamAudience.js";
 import LiveStreamRoom from "./Utils/Connection/LiveStreamRoom.js";
+import PostStatusScreen from "./components/MainPageComponents/PostStatus/PostStatusScreen.js";
+import { LogBox } from 'react-native';
 
+LogBox.ignoreLogs(['new NativeEventEmitter']); // Ignore log notification by message
+LogBox.ignoreAllLogs(); //Ignore all log notifications
 
 const Stack = createNativeStackNavigator();
 
@@ -30,6 +34,7 @@ function App() {
         <Stack.Screen name="LoginSubScreen" component={LoginSubScreen} />
         <Stack.Screen name="MainPage" component={MainPage} />
         <Stack.Screen name="MessageTab" component={MessageTab} />
+        <Stack.Screen name="PostStatusScreen" component={PostStatusScreen}/>
         <Stack.Screen name="PreLiveStream" component={PreLiveStream}/>
         <Stack.Screen name="LiveStreamRoom" component={LiveStreamRoom}/>
         <Stack.Screen name="LiveStream" component={LiveStream}/>

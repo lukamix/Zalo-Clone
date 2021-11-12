@@ -6,7 +6,7 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
-9        android:targetSdkVersion="28" />
+9        android:targetSdkVersion="30" />
 10
 11    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 11-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\debug\AndroidManifest.xml:5:5-77
@@ -14,79 +14,100 @@
 12    <uses-permission android:name="android.permission.INTERNET" />
 12-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:4:5-67
 12-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:4:22-64
-13    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-13-->[com.facebook.flipper:flipper:0.99.0] C:\Users\PV\.gradle\caches\transforms-3\2f5725507f1929c6ddf8255f0bef77bd\transformed\jetified-flipper-0.99.0\AndroidManifest.xml:16:5-76
-13-->[com.facebook.flipper:flipper:0.99.0] C:\Users\PV\.gradle\caches\transforms-3\2f5725507f1929c6ddf8255f0bef77bd\transformed\jetified-flipper-0.99.0\AndroidManifest.xml:16:22-73
-14    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-14-->[:react-native-agora] C:\Users\PV\Desktop\Zalo-Clone\node_modules\react-native-agora\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-75
-14-->[:react-native-agora] C:\Users\PV\Desktop\Zalo-Clone\node_modules\react-native-agora\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-72
-15    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-15-->[:react-native-agora] C:\Users\PV\Desktop\Zalo-Clone\node_modules\react-native-agora\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:5-71
-15-->[:react-native-agora] C:\Users\PV\Desktop\Zalo-Clone\node_modules\react-native-agora\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:22-68
-16    <uses-permission android:name="android.permission.CAMERA" />
-16-->[:react-native-agora] C:\Users\PV\Desktop\Zalo-Clone\node_modules\react-native-agora\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:5-65
-16-->[:react-native-agora] C:\Users\PV\Desktop\Zalo-Clone\node_modules\react-native-agora\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:22-62
-17    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-17-->[:react-native-agora] C:\Users\PV\Desktop\Zalo-Clone\node_modules\react-native-agora\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:5-80
-17-->[:react-native-agora] C:\Users\PV\Desktop\Zalo-Clone\node_modules\react-native-agora\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:22-77
-18    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-18-->[:react-native-agora] C:\Users\PV\Desktop\Zalo-Clone\node_modules\react-native-agora\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:5-79
-18-->[:react-native-agora] C:\Users\PV\Desktop\Zalo-Clone\node_modules\react-native-agora\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:22-76
-19    <uses-permission android:name="android.permission.BLUETOOTH" />
-19-->[:react-native-agora] C:\Users\PV\Desktop\Zalo-Clone\node_modules\react-native-agora\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:5-68
-19-->[:react-native-agora] C:\Users\PV\Desktop\Zalo-Clone\node_modules\react-native-agora\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:22-65
-20    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-20-->[:react-native-agora] C:\Users\PV\Desktop\Zalo-Clone\node_modules\react-native-agora\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:18:5-80
-20-->[:react-native-agora] C:\Users\PV\Desktop\Zalo-Clone\node_modules\react-native-agora\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:18:22-77
-21    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
-21-->[:react-native-agora] C:\Users\PV\Desktop\Zalo-Clone\node_modules\react-native-agora\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:19:5-21:47
-21-->[:react-native-agora] C:\Users\PV\Desktop\Zalo-Clone\node_modules\react-native-agora\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:9-70
-22
-23    <application
-23-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:6:5-24:19
-24        android:name="com.okela.MainApplication"
-24-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:7:7-38
-25        android:allowBackup="false"
-25-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:11:7-34
-26        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-26-->[androidx.core:core:1.5.0] C:\Users\PV\.gradle\caches\transforms-3\5646db46e2cfb43e7b3d42f3054c498c\transformed\core-1.5.0\AndroidManifest.xml:24:18-86
-27        android:debuggable="true"
-28        android:icon="@mipmap/ic_launcher"
-28-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:9:7-41
-29        android:label="@string/app_name"
-29-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:8:7-39
-30        android:roundIcon="@mipmap/ic_launcher_round"
-30-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:10:7-52
-31        android:theme="@style/AppTheme"
-31-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:12:7-38
-32        android:usesCleartextTraffic="true" >
-32-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\debug\AndroidManifest.xml:8:9-44
-33        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
-33-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\debug\AndroidManifest.xml:11:9-86
-33-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\debug\AndroidManifest.xml:11:19-83
-34        <activity
-34-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:13:7-23:18
-35            android:name="com.okela.MainActivity"
-35-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:14:9-37
-36            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
-36-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:16:9-86
-37            android:label="@string/app_name"
-37-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:15:9-41
-38            android:launchMode="singleTask"
-38-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:17:9-40
-39            android:windowSoftInputMode="adjustResize" >
-39-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:18:9-51
-40            <intent-filter>
-40-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:19:9-22:25
-41                <action android:name="android.intent.action.MAIN" />
-41-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:20:13-65
-41-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:20:21-62
-42
-43                <category android:name="android.intent.category.LAUNCHER" />
-43-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:21:13-73
-43-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:21:23-70
-44            </intent-filter>
-45        </activity>
-46    </application>
-47
-48</manifest>
+13    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+13-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:5:5-79
+13-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:5:22-76
+14    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+14-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:6:5-81
+14-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:6:22-78
+15    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+15-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:7:5-81
+15-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:7:22-78
+16    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+16-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:8:5-79
+16-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:8:22-76
+17    <uses-permission android:name="android.permission.CAMERA" />
+17-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:9:5-65
+17-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:9:22-62
+18    <uses-permission android:name="android.permission.READ_CONTACTS" />
+18-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:10:5-72
+18-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:10:22-69
+19    <uses-permission android:name="android.permission.READ_CALENDAR" />
+19-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:11:5-72
+19-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:11:22-69
+20    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+20-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:12:5-73
+20-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:12:22-70
+21    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+21-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:13:5-80
+21-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:13:22-77
+22    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+22-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:14:5-71
+22-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:14:22-68
+23    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+23-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:15:5-73
+23-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:15:22-70
+24    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+24-->[com.facebook.flipper:flipper:0.99.0] C:\Users\PV\.gradle\caches\transforms-3\2f5725507f1929c6ddf8255f0bef77bd\transformed\jetified-flipper-0.99.0\AndroidManifest.xml:16:5-76
+24-->[com.facebook.flipper:flipper:0.99.0] C:\Users\PV\.gradle\caches\transforms-3\2f5725507f1929c6ddf8255f0bef77bd\transformed\jetified-flipper-0.99.0\AndroidManifest.xml:16:22-73
+25    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+25-->[:react-native-agora] C:\Users\PV\Desktop\Zalo-Clone\node_modules\react-native-agora\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-75
+25-->[:react-native-agora] C:\Users\PV\Desktop\Zalo-Clone\node_modules\react-native-agora\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-72
+26    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+26-->[:react-native-agora] C:\Users\PV\Desktop\Zalo-Clone\node_modules\react-native-agora\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:5-80
+26-->[:react-native-agora] C:\Users\PV\Desktop\Zalo-Clone\node_modules\react-native-agora\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:22-77
+27    <uses-permission android:name="android.permission.BLUETOOTH" />
+27-->[:react-native-agora] C:\Users\PV\Desktop\Zalo-Clone\node_modules\react-native-agora\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:5-68
+27-->[:react-native-agora] C:\Users\PV\Desktop\Zalo-Clone\node_modules\react-native-agora\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:22-65
+28    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
+28-->[:react-native-agora] C:\Users\PV\Desktop\Zalo-Clone\node_modules\react-native-agora\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:19:5-21:47
+28-->[:react-native-agora] C:\Users\PV\Desktop\Zalo-Clone\node_modules\react-native-agora\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:9-70
+29
+30    <application
+30-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:17:5-35:19
+31        android:name="com.okela.MainApplication"
+31-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:18:7-38
+32        android:allowBackup="false"
+32-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:22:7-34
+33        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+33-->[androidx.core:core:1.5.0] C:\Users\PV\.gradle\caches\transforms-3\5646db46e2cfb43e7b3d42f3054c498c\transformed\core-1.5.0\AndroidManifest.xml:24:18-86
+34        android:debuggable="true"
+35        android:icon="@mipmap/ic_launcher"
+35-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:20:7-41
+36        android:label="@string/app_name"
+36-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:19:7-39
+37        android:roundIcon="@mipmap/ic_launcher_round"
+37-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:21:7-52
+38        android:theme="@style/AppTheme"
+38-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:23:7-38
+39        android:usesCleartextTraffic="true" >
+39-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\debug\AndroidManifest.xml:8:9-44
+40        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+40-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\debug\AndroidManifest.xml:11:9-86
+40-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\debug\AndroidManifest.xml:11:19-83
+41        <activity
+41-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:24:7-34:18
+42            android:name="com.okela.MainActivity"
+42-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:25:9-37
+43            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+43-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:27:9-86
+44            android:label="@string/app_name"
+44-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:26:9-41
+45            android:launchMode="singleTask"
+45-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:28:9-40
+46            android:windowSoftInputMode="adjustResize" >
+46-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:29:9-51
+47            <intent-filter>
+47-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:30:9-33:25
+48                <action android:name="android.intent.action.MAIN" />
+48-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:31:13-65
+48-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:31:21-62
+49
+50                <category android:name="android.intent.category.LAUNCHER" />
+50-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:32:13-73
+50-->C:\Users\PV\Desktop\Zalo-Clone\android\app\src\main\AndroidManifest.xml:32:23-70
+51            </intent-filter>
+52        </activity>
+53    </application>
+54
+55</manifest>

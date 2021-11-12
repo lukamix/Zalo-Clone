@@ -330,6 +330,10 @@ module.exports = StyleSheet.create({
     like_button_text:{
         fontSize:18,
     },
+    liked_button_text:{
+        fontSize:18,
+        color:SUB_COLOR,
+    },
     comment_button_box:{
         flex:1,
         flexDirection:'row',

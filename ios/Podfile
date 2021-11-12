@@ -12,6 +12,14 @@ target 'Okela' do
     :hermes_enabled => false
   )
 
+  pod 'agora-react-native-rtm', :path => '../node_modules/agora-react-native-rtm'
+
+  pod 'react-native-agora', :path => '../node_modules/react-native-agora'
+
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
+  pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
+
   target 'OkelaTests' do
     inherit! :complete
     # Pods for testing

@@ -81,7 +81,6 @@ export default StyleSheet.create({
         marginRight:100,
         marginBottom:7,
         height:200,
-        borderWidth:1,
     },
     footer:{
         flexDirection:'row',

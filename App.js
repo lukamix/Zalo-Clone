@@ -1,21 +1,40 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+"use strict";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import MainPage from "./components/MainPage.js";
+import LoginSubScreen from "./components/LoginSubScreen.js";
+import SignUpSubScene from "./components/SignUpSubScene.js";
+import HomeScreen from "./components/HomeScreen.js";
+import MessageTab from "./components/MainPageComponents/Message/MessageTab.js";
+import PostStatusScreen from "./components/MainPageComponents/PostStatus/PostStatusScreen.js";
+import { LogBox } from 'react-native';
 
-export default function App() {
+LogBox.ignoreLogs(['new NativeEventEmitter']); // Ignore log notification by message
+LogBox.ignoreAllLogs(); //Ignore all log notifications
+
+const Stack = createNativeStackNavigator();
+
+function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer 
+    >
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+        initialRouteName="MainPage"
+      >
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="SignUpSubScene" component={SignUpSubScene} />
+        <Stack.Screen name="LoginSubScreen" component={LoginSubScreen} />
+        <Stack.Screen name="MainPage" component={MainPage} />
+        <Stack.Screen name="MessageTab" component={MessageTab} />
+        <Stack.Screen name="PostStatusScreen" component={PostStatusScreen}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
+export default App;

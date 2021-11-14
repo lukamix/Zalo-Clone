@@ -211,14 +211,7 @@ function TimelineScreen({ navigation }) {
                         </View>
                         <View style={styles.what_you_can_do}>
                             <View style={styles.live_streaming_place}>
-                                <TouchableOpacity style={styles.live_streaming} 
-                                    onPress={()=>{
-                                        navigation.navigate("PreLiveStream",{
-                                            //pass UserID here
-                                            userID:'1',
-                                            //pass more params here
-                                        })
-                                    }}
+                                <TouchableOpacity style={styles.live_streaming}
                                 >
                                     <Image source ={require("../../assets/images/timeline/live.png")}
                                         style={styles.live_stream_image}/>

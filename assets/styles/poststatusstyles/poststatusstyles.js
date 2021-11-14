@@ -41,7 +41,6 @@ module.exports = StyleSheet.create({
         height: 50,
     },
     what_do_you_think:{
-        float:1,
         height:45+"%",
         marginLeft:15,
         marginRight:15,

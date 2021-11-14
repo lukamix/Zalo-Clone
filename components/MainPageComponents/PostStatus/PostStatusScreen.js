@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View,Image,Text,InteractionManager, Component,SafeAreaView,TouchableOpacity,TextInput,FlatList
+  View,Image,Text,InteractionManager,PermissionsAndroid, Component,SafeAreaView,TouchableOpacity,TextInput,FlatList
 } from 'react-native';
 import CameraRoll from "@react-native-community/cameraroll";
 
@@ -9,6 +9,72 @@ const MAX_SELECTED_IMAGEs = 4
 const MAX_SELECTED_VIDEOs = 1
 const MAX_VIDEO_SIZE = 20000000 //(Bytes)
 const MAX_IMAGE_SIZE = 5000000  //(Bytes)
+const requestCameraPermission = async () => {
+  try {
+    const granted = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.CAMERA,
+      {
+        title: "Permission",
+        message:
+          "Cho bố xin địa chỉ",
+        buttonNeutral: "Ask Me Later",
+        buttonNegative: "Cancel",
+        buttonPositive: "OK"
+      }
+    );
+    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+      requestREADPermission();
+    } else {
+      console.log("permission denied");
+    }
+  } catch (err) {
+    console.warn(err);
+  }
+};
+const requestREADPermission = async () => {
+  try {
+    const granted = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
+      {
+        title: "Permission",
+        message:
+          "Cho bố xin địa chỉ 1",
+        buttonNeutral: "Ask Me Later",
+        buttonNegative: "Cancel",
+        buttonPositive: "OK"
+      }
+    );
+    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+      requestWritePermission();
+    } else {
+      console.log("permission denied");
+    }
+  } catch (err) {
+    console.warn(err);
+  }
+};
+const requestWritePermission = async () => {
+  try {
+    const granted = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+      {
+        title: "Permission",
+        message:
+          "Cho bố xin địa chỉ 2",
+        buttonNeutral: "Ask Me Later",
+        buttonNegative: "Cancel",
+        buttonPositive: "OK"
+      }
+    );
+    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+      console.log('request complete')
+    } else {
+      console.log("permission denied");
+    }
+  } catch (err) {
+    console.warn(err);
+  }
+};
 class PostStatusScreen extends React.Component {
   state={
     textInput:'',
@@ -305,14 +371,14 @@ class PostStatusScreen extends React.Component {
             <View style={styles.right_header_button}>
               <TouchableOpacity
               onPress={
-                this.setPhotos
+                requestCameraPermission
               } >
                 <Image source={require('../../../assets/images/timeline/photo.png')}
                   style={styles.smile_icon}
                 ></Image>
               </TouchableOpacity>
               <TouchableOpacity onPress={
-                this.setVideos
+                requestCameraPermission
               }>
               <Image source={require('../../../assets/images/timeline/video.png')}
                 style={styles.smile_icon}

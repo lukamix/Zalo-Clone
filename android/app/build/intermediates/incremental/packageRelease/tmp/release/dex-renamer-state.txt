@@ -1,4 +1,0 @@
-#Tue Oct 19 00:44:27 ICT 2021
-base.0=C\:\\Users\\PV\\Desktop\\Zalo-Clone\\android\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
-renamed.0=classes.dex
-path.0=classes.dex

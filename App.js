@@ -8,7 +8,8 @@ import SignUpSubScene from "./components/SignUpSubScene.js";
 import HomeScreen from "./components/HomeScreen.js";
 import MessageTab from "./components/MainPageComponents/Message/MessageTab.js";
 import PostStatusScreen from "./components/MainPageComponents/PostStatus/PostStatusScreen.js";
-import { LogBox } from "react-native";
+import { LogBox } from 'react-native';
+import CommentTab from "./components/MainPageComponents/Comment/CommentTab.js";
 
 LogBox.ignoreLogs(["new NativeEventEmitter"]); // Ignore log notification by message
 LogBox.ignoreAllLogs(); //Ignore all log notifications
@@ -29,7 +30,8 @@ function App() {
         <Stack.Screen name="LoginSubScreen" component={LoginSubScreen} />
         <Stack.Screen name="MainPage" component={MainPage} />
         <Stack.Screen name="MessageTab" component={MessageTab} />
-        <Stack.Screen name="PostStatusScreen" component={PostStatusScreen} />
+        <Stack.Screen name="PostStatusScreen" component={PostStatusScreen}/>
+        <Stack.Screen name="CommentTab" component = {CommentTab}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

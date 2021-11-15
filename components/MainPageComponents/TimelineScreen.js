@@ -382,7 +382,13 @@ class TimelineScreen extends Component {
                                         </Text>
                                     }
                                 </TouchableOpacity>
-                                <TouchableOpacity style={styles.comment_button_box}>
+                                <TouchableOpacity style={styles.comment_button_box}
+                                onPress={
+                                    ()=>{
+                                        this.props.navigation.navigate("CommentTab",{
+                                           //pass Parameter Comment here.
+                                        })}
+                                }>
                                     <Image source ={require("../../assets/images/timeline/comment.png")}
                                         style= {styles.comment_button_image}/>
                                     <Text style={styles.comment_button_text}>

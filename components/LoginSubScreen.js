@@ -9,6 +9,7 @@ const {URI} = require("../Constants/Constants.js");
 
 const styles = require("../assets/styles/appstyle.js");
 const subloginstyles = require("../assets/styles/subloginstyle.js");
+const login = require('../Controller/Login.js');
 
 const DEFAULT_WARNING = {
   "INVALID_PHONE_FORMAT":"Định dạng số điện thoại không đúng !",
@@ -46,7 +47,7 @@ function LoginSubScreen({ navigation }) {
     else if(formatphone.test(phonenumber1)){
       warningText = DEFAULT_WARNING["EXTEND_INVALID_INPUT_FORMAT"][0];
     }
-    else if (password1.length<=6){
+    else if (password1.length<5){
       warningText = DEFAULT_WARNING["TOO_SHORT_PASSWORD"];
     }
     return(
@@ -116,31 +117,8 @@ function LoginSubScreen({ navigation }) {
         <TouchableOpacity style={subloginstyles.next_button}
           disabled={warningText!=null&&warningText!=""} //disable button on Default
           onPress={()=>{ 
-              //Call API Login Here
-              fetch(URI+'users/login', {
-                method: 'POST',
-                headers: {
-                  Accept: 'application/json',
-                  'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                  phonenumber: phonenumber1,
-                  password: password1,
-                })
-              })
-                .then((response) =>{
-                  const statusCode = response.status;
-                  const data = response.json();
-                  return Promise.all([statusCode, data]);
-                }
-                  )
-                .then(([res,data]) => {
-                  console.log(res,data);
-                  navigation.navigate("MainPage");
-                })
-                .catch((error) => {
-                  console.error(error);
-                });
+              var res = {'phonenumber':phonenumber1,'password':password1,'navigation':navigation}
+              login.login(res);
             }
          }
         >

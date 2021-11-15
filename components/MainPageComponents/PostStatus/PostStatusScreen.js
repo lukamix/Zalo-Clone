@@ -1,80 +1,16 @@
 import React from 'react';
 import {
-  View,Image,Text,InteractionManager,PermissionsAndroid, Component,SafeAreaView,TouchableOpacity,TextInput,FlatList
+  View,Image,Text,InteractionManager,SafeAreaView,TouchableOpacity,TextInput,FlatList
 } from 'react-native';
-import CameraRoll from "@react-native-community/cameraroll";
+import * as Permissions from 'expo-permissions';
+import * as MediaLibrary from 'expo-media-library';
 
 var styles = require('../../../assets/styles/poststatusstyles/poststatusstyles.js');
 const MAX_SELECTED_IMAGEs = 4
 const MAX_SELECTED_VIDEOs = 1
 const MAX_VIDEO_SIZE = 20000000 //(Bytes)
 const MAX_IMAGE_SIZE = 5000000  //(Bytes)
-const requestCameraPermission = async () => {
-  try {
-    const granted = await PermissionsAndroid.request(
-      PermissionsAndroid.PERMISSIONS.CAMERA,
-      {
-        title: "Permission",
-        message:
-          "Cho bố xin địa chỉ",
-        buttonNeutral: "Ask Me Later",
-        buttonNegative: "Cancel",
-        buttonPositive: "OK"
-      }
-    );
-    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-      requestREADPermission();
-    } else {
-      console.log("permission denied");
-    }
-  } catch (err) {
-    console.warn(err);
-  }
-};
-const requestREADPermission = async () => {
-  try {
-    const granted = await PermissionsAndroid.request(
-      PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
-      {
-        title: "Permission",
-        message:
-          "Cho bố xin địa chỉ 1",
-        buttonNeutral: "Ask Me Later",
-        buttonNegative: "Cancel",
-        buttonPositive: "OK"
-      }
-    );
-    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-      requestWritePermission();
-    } else {
-      console.log("permission denied");
-    }
-  } catch (err) {
-    console.warn(err);
-  }
-};
-const requestWritePermission = async () => {
-  try {
-    const granted = await PermissionsAndroid.request(
-      PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
-      {
-        title: "Permission",
-        message:
-          "Cho bố xin địa chỉ 2",
-        buttonNeutral: "Ask Me Later",
-        buttonNegative: "Cancel",
-        buttonPositive: "OK"
-      }
-    );
-    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-      console.log('request complete')
-    } else {
-      console.log("permission denied");
-    }
-  } catch (err) {
-    console.warn(err);
-  }
-};
+
 class PostStatusScreen extends React.Component {
   state={
     textInput:'',
@@ -93,6 +29,7 @@ class PostStatusScreen extends React.Component {
     this.setPhotos = this.setPhotos.bind(this);
     this.setVideos = this.setVideos.bind(this);
     this.setEmojis = this.setEmojis.bind(this);
+    this.getImages = this.getImages.bind(this);
   }
   focusInputWithKeyboard() {
     InteractionManager.runAfterInteractions(() => {
@@ -117,31 +54,30 @@ class PostStatusScreen extends React.Component {
     this.setState({intab:"Videos"});
     this.blurTextInput();
   }
-  async componentDidMount(){
-      
-      CameraRoll.getPhotos({
-        first: 100,
-        assetType: 'Photos',
-      })
-      .then(res => {
-        this.setState({ images: res.edges });
-      })
-      .catch((error) => {
-         console.log(error);
-      });
-      CameraRoll.getPhotos({
-        first: 100,
-        assetType: 'Videos',
-        include:['filename','location','playableDuration','fileSize'],
-      })
-      .then(res => {
-        this.setState({ videos: res.edges });
-      })
-      .catch((error) => {
-         console.log(error);
-      });
-      this.setState({intab:this.props.route.params.intab});
+  componentDidMount(){
+    this.getImages();
+    this.getVideos();
+    this.setState({intab:this.props.route.params.intab});
   }
+  getImages = () => {
+    return Permissions.askAsync(Permissions.MEDIA_LIBRARY)
+      .then(() => {
+        return MediaLibrary.getAssetsAsync({ first: 50 ,mediaType:'photo'});
+      })
+      .then((result) => {
+        //console.log(result.assets[0].uri);
+        this.setState({images:result.assets})
+      });
+  };
+  getVideos = () => {
+    return Permissions.askAsync(Permissions.MEDIA_LIBRARY)
+      .then(() => {
+        return MediaLibrary.getAssetsAsync({ first: 50 ,mediaType:'video'});
+      })
+      .then((result) => {
+        this.setState({videos:result.assets})
+      });
+  };
   _renderSelectedImages = () => {
     let selectedPhotos = this.state.selectedPhotos;
     let images = this.state.images;
@@ -158,31 +94,31 @@ class PostStatusScreen extends React.Component {
         <View style={styles.image_wdyt_box_container}>
           {
             listURI.length<=2?<Image style={styles.upload_images} source = 
-            {{width:50+"%",height:160,uri:listURI[0].node.image.uri}}/>:
+            {{width:50+"%",height:160,uri:listURI[0].uri}}/>:
             listURI.length==3?<Image style={styles.upload_images} source = 
-            {{width:66.66+"%",height:223,uri:listURI[0].node.image.uri}}/>:
+            {{width:66.66+"%",height:223,uri:listURI[0].uri}}/>:
             listURI.length==4?<Image style={styles.upload_images} source = 
-            {{width:60+"%",height:208,uri:listURI[0].node.image.uri}}/>:null
+            {{width:60+"%",height:208,uri:listURI[0].uri}}/>:null
           }
           <View style= {styles.image_wdyt_box_display_column}>
           {
             listURI.length==2?<Image style={styles.upload_images} source = 
-            {{width:50+"%",height:160,uri:listURI[1].node.image.uri}}/>:
+            {{width:50+"%",height:160,uri:listURI[1].uri}}/>:
             listURI.length==3?<Image style={styles.upload_images} source = 
-            {{width:33.33+"%",height:110,uri:listURI[1].node.image.uri}}/>:
+            {{width:33.33+"%",height:110,uri:listURI[1].uri}}/>:
             listURI.length==4?<Image style={styles.upload_images} source = 
-            {{width:41+"%",height:130,uri:listURI[1].node.image.uri}}/>:null
+            {{width:41+"%",height:130,uri:listURI[1].uri}}/>:null
           }
             <View style= {styles.image_wdyt_box_display_row}>
               {
                 listURI.length==3?<Image style={styles.upload_images} source = 
-                {{width:33.33+"%",height:110,uri:listURI[2].node.image.uri}}/>:
+                {{width:33.33+"%",height:110,uri:listURI[2].uri}}/>:
                 listURI.length==4?<Image style={styles.upload_images} source = 
-                {{width:20+"%",height:75,uri:listURI[2].node.image.uri}}/>:null
+                {{width:20+"%",height:75,uri:listURI[2].uri}}/>:null
               }
               {
                 listURI.length==4?<Image style={styles.upload_images} source = 
-                {{width:20+"%",height:75,uri:listURI[3].node.image.uri}}/>:null
+                {{width:20+"%",height:75,uri:listURI[3].uri}}/>:null
               }
             </View>
           </View>
@@ -206,7 +142,7 @@ class PostStatusScreen extends React.Component {
       return(
         <TouchableOpacity style={styles.image_wdyt_box_container}>
           <Image style={styles.upload_images} source = 
-          {{width:80+"%",height:300,uri:listURI[0].node.image.uri}}/>
+          {{width:80+"%",height:300,uri:listURI[0].uri}}/>
         </TouchableOpacity>
       )
     }
@@ -227,7 +163,7 @@ class PostStatusScreen extends React.Component {
           this._handleImageSelectionMultiple(item,index);
         }}
       >
-         <Image style={styles._image} source={{uri: item.node.image.uri}}/>
+         <Image style={styles._image} source={{uri: item.uri}}/>
          {
            isSelected ? 
            <Image style={styles._image_ticker} source={require('../../../assets/images/timeline/tick.png')}/>
@@ -251,20 +187,21 @@ class PostStatusScreen extends React.Component {
           this._handleVideoSelectionMultiple(item,index);
         }}
       >
-         <Image style={styles._image} source={{uri: item.node.image.uri}}/>
+         <Image style={styles._image} source={{uri: item.uri}}/>
          {
            isSelected ? 
            <Image style={styles._image_ticker} source={require('../../../assets/images/timeline/tick.png')}/>
            :<Image style={styles._image_ticker} source={require('../../../assets/images/timeline/circle.png')} />
          }
          <View style = {styles.duration_container}>
-           <Text style = {styles.duration_text}>{Math.floor(item.node.image.playableDuration/60)}:{item.node.image.playableDuration-60*Math.floor(item.node.image.playableDuration/60)}</Text>
+           <Text style = {styles.duration_text}>{Math.floor(item.duration/60)}:{item.duration-60*Math.floor(item.duration/60)}</Text>
          </View>
       </TouchableOpacity>
     )
   }
   _handleImageSelectionMultiple = (item,selectedItem) => {
     let selectedPhotos = this.state.selectedPhotos;
+    let selectedVideos = this.state.selectedVideos;
       let isItemSelected = false;
       let index = 0;
       for(let i = 0;i<selectedPhotos.length;i++) {
@@ -276,7 +213,7 @@ class PostStatusScreen extends React.Component {
       if (isItemSelected) {
         selectedPhotos.splice(index, 1);
       } else {
-        if(selectedPhotos.length<MAX_SELECTED_IMAGEs && item.node.image.fileSize<MAX_IMAGE_SIZE){
+        if(selectedPhotos.length<MAX_SELECTED_IMAGEs && selectedVideos.length==0){
           selectedPhotos.push(selectedItem);
         }
       }
@@ -284,6 +221,7 @@ class PostStatusScreen extends React.Component {
   }
   _handleVideoSelectionMultiple = (item,selectedItem) => {
     let selectedVideos = this.state.selectedVideos;
+    let selectedPhotos = this.state.selectedPhotos;
       let isItemSelected = false;
       let index = 0;
       for(let i = 0;i<selectedVideos.length;i++) {
@@ -295,7 +233,7 @@ class PostStatusScreen extends React.Component {
       if (isItemSelected) {
         selectedVideos.splice(index, 1);
       } else {
-        if(selectedVideos.length<MAX_SELECTED_VIDEOs && item.node.image.fileSize<MAX_VIDEO_SIZE){
+        if(selectedVideos.length<MAX_SELECTED_VIDEOs && selectedPhotos.length==0){
           selectedVideos.push(selectedItem);
         }
       }
@@ -371,14 +309,14 @@ class PostStatusScreen extends React.Component {
             <View style={styles.right_header_button}>
               <TouchableOpacity
               onPress={
-                requestCameraPermission
+                this.setPhotos
               } >
                 <Image source={require('../../../assets/images/timeline/photo.png')}
                   style={styles.smile_icon}
                 ></Image>
               </TouchableOpacity>
               <TouchableOpacity onPress={
-                requestCameraPermission
+                this.setVideos
               }>
               <Image source={require('../../../assets/images/timeline/video.png')}
                 style={styles.smile_icon}

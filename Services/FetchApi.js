@@ -1,13 +1,12 @@
 "use strict";
 import React, { useState } from "react";
 import { AsyncStorage } from "react-native";
-const { URI } = require("../Constants/Constants.js");
 
 const FetchApi = {}
 
 FetchApi.post = async (route, res) => {
   var token = await AsyncStorage.getItem("id_token");
-  return fetch(URI + route, {
+  return fetch(route, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -28,7 +27,7 @@ FetchApi.post = async (route, res) => {
 
 FetchApi.get = async (route, res) => {
   var token = await AsyncStorage.getItem("id_token");
-  return fetch(URI + route, {
+  return fetch(route, {
     method: "GET",
     headers: {
       Accept: "application/json",

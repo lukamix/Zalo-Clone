@@ -1,4 +1,4 @@
-const URI = 'http://localhost:8000/api/v1/';
+const URI = 'https://floating-peak-76068.herokuapp.com/api/v1/';
 const MAIN_COLOR = '#F048B8';
 const SUB_COLOR = '#E078BD';
 const BLUE_COLOR = '#46BBFF';

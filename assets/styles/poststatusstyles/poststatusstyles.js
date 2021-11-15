@@ -1,7 +1,6 @@
 "use strict";
 import { StyleSheet } from "react-native";
 const {MAIN_COLOR,SUB_COLOR, GREY_COLOR} = require("../../../Constants/Constants.js");
-import {Dimensions} from 'react-native';
 
 module.exports = StyleSheet.create({
     container:{
@@ -124,6 +123,7 @@ module.exports = StyleSheet.create({
     },
     flatlist_container:{
         width:'100%',
+        height:300,
     },
     image_container:{
         width: '32%',

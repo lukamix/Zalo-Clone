@@ -1,7 +1,8 @@
 "use strict";
 import React, { useState } from "react";
 import { AsyncStorage } from "react-native";
-const { Users } = require("../Constants/ApiPath.js");
+const { Users} = require("../Constants/ApiPath.js");
+const { URI } = require("../Constants/Constants.js");
 const FetchApi = require("../Services/FetchApi");
 const { HTTP_STATUS } = require("../Constants/Constants.js");
 
@@ -22,11 +23,13 @@ LoginController.login = async (res) => {
   } else {
     //Call API Login Here
     console.log("data");
-    FetchApi.post(Users.login, res)
+    console.log(URI+Users.login);
+    FetchApi.post(URI+Users.login, res)
       .then((response) => {
+        console.log(response);
         if (response[0] == HTTP_STATUS.OK) {
           AsyncStorage.setItem("id_token", response[1].token);
-          res.navigation.navigate("SignUpSubScene");
+          res.navigation.navigate("MainPage");
         } else {
           console.log(response[1].message);
         }

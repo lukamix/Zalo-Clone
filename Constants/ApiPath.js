@@ -1,3 +1,4 @@
+
 const Users = {
   register: "users/register",
   login: "users/login",
@@ -29,5 +30,5 @@ module.exports = {
     PostLike,
     PostReport,
     Posts,
-    Chats
+    Chats,
 }

@@ -239,23 +239,29 @@ module.exports = StyleSheet.create({
         alignItems:'center',
     },
     user_post_info_box:{
+        flexDirection:'row',
         marginLeft:10,
     },
     user_post_status:{
-        flexDirection:'row',
-        alignItems:'baseline',
     },
     user_post_name:{
-        fontSize:16,
         fontWeight:'bold',
+        fontSize:16,
     },
     user_post_type:{
-        width:60+"%",
-        marginLeft:5,
-        fontSize:15,
+        width:75+"%",
+        flexWrap:'wrap',
     },
     user_post_date_and_public:{
         flexDirection:'row',
+    },
+    option_button:{
+        right:70,
+        position:'absolute',
+    },
+    option_button_image:{
+        width:20,
+        height:20,
     },
     user_post_date:{
         fontSize:15,
@@ -409,5 +415,25 @@ module.exports = StyleSheet.create({
     },
     timeline_footer_text:{
         fontSize:30,
-    },  
+    },
+    modalcontainer:{
+
+    },
+    option_view:{
+        backgroundColor:'white',
+        position:'absolute',
+        bottom:0,
+        width:100+"%",
+        height:27+"%",
+        borderRadius:15,
+    },
+    option_view_item:{
+        marginTop:10,
+        marginBottom:10,
+        alignItems:'center',
+    },
+    option_view_item_text:{
+        fontSize:20,
+        color:SUB_COLOR,
+    },
 });

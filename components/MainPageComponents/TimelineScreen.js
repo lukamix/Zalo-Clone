@@ -1,10 +1,13 @@
 "use strict";
 import React, { Component, useState } from "react";
-import { TouchableOpacity,FlatList, Text, View, Image, TextInput } from "react-native";
+import { TouchableOpacity,FlatList, Text, View, Image, TextInput ,Modal } from "react-native";
+import { BlurView } from 'expo-blur';
+
 const styles = require("../../assets/styles/mainpagestyles/timelinescreenstyles.js");
 const subloginstyles = require("../../assets/styles/subloginstyle.js");
 const {MAIN_COLOR,SUB_COLOR,GREY_COLOR} = require("../../Constants/Constants.js");
-const MainPageController = require("../../Controller/MainPage.js")
+const MainPageController = require("../../Controller/MainPage.js");
+
 
 const {URI} = require("../../Constants/Constants.js");
 //Test Post Data
@@ -144,6 +147,10 @@ class TimelineScreen extends Component {
     state = 
     {
         search_input:"",
+        option_modal_visible:false,
+    }
+    setModalVisible = (visible) => {
+        this.setState({ option_modal_visible: visible });
     }
     setSearchInput = (value)=>{
         this.setState({search_input:value});
@@ -152,8 +159,10 @@ class TimelineScreen extends Component {
         super(props);
     }
     render(){
+        const { option_modal_visible } = this.state;
         return (
-            <View style={styles.container}>
+            <View style={styles.container}
+            >
                 <View style={subloginstyles.header}>
                     <TouchableOpacity
                     style={styles.search_button}
@@ -321,23 +330,28 @@ class TimelineScreen extends Component {
                             </TouchableOpacity>
                             <View style={styles.user_post_info_box}>
                                 <View style={styles.user_post_status}>
-                                    <TouchableOpacity>
-                                        <Text style={styles.user_post_name}>{item.username}</Text>
-                                    </TouchableOpacity>
                                     <Text style={styles.user_post_type} >
-                                        {item.type}
-                                    </Text>
-                                </View>
-                                <View style={styles.user_post_date_and_public}>
-                                    <Text style={styles.user_post_date}>
+                                        <Text style={styles.user_post_name}>
+                                            {item.username}
+                                            </Text>
+                                        {" "+item.type+". "}
+                                        <Text style={styles.user_post_date}>
                                         {item.status}
+                                        </Text>
+                                        <Text style={styles.user_post_temp_icon}> · </Text>
+                                        <TouchableOpacity>
+                                            <Image source={require("../../assets/images/timeline/public.png")}
+                                                style={styles.user_post_public_image}/>
+                                        </TouchableOpacity>
                                     </Text>
-                                    <Text style={styles.user_post_temp_icon}> · </Text>
-                                    <TouchableOpacity>
-                                        <Image source={require("../../assets/images/timeline/public.png")}
-                                            style={styles.user_post_public_image}/>
-                                    </TouchableOpacity>
                                 </View>
+                                <TouchableOpacity style={styles.option_button}
+                                onPress = {()=>{
+                                    this.setModalVisible(!option_modal_visible);
+                                }}>
+                                    <Image source= {require('../../assets/images/timeline/option.png')}
+                                    style={styles.option_button_image}/>
+                                </TouchableOpacity>
                             </View>
                         </View>
                         <View>
@@ -423,6 +437,35 @@ class TimelineScreen extends Component {
                     }}
                 />
                 </View>
+                <Modal
+                animationType='fade'
+                transparent={true}
+                visible={option_modal_visible}
+                onRequestClose={() => {
+                    this.setModalVisible(!option_modal_visible);
+                }}
+                style= {styles.modalcontainer}
+                >
+                    <View style={styles.option_view}>
+                        <TouchableOpacity style={styles.option_view_item}>
+                            <Text style={styles.option_view_item_text}>Chặn người dùng</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.option_view_item}>
+                            <Text style={styles.option_view_item_text}>Báo cáo bài viết</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.option_view_item}>
+                            <Text style={styles.option_view_item_text}>Hủy kết bạn</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.option_view_item}
+                        onPress={
+                            ()=>{
+                            this.setModalVisible(!option_modal_visible)
+                            }
+                        }>
+                            <Text style={styles.option_view_item_text}>Đóng</Text>
+                        </TouchableOpacity>
+                    </View>
+                </Modal>
             </View>
         );
     }

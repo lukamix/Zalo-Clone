@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { AsyncStorage } from "react-native";
 
-const FetchApi = {}
+const FetchApi = {};
 
 FetchApi.post = async (route, res) => {
   var token = await AsyncStorage.getItem("id_token");
@@ -11,9 +11,9 @@ FetchApi.post = async (route, res) => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
+      authorization: "token " + token
     },
     body: JSON.stringify(res),
-    authorization: "token " + token,
   })
     .then((response) => {
       const statusCode = response.status;
@@ -25,16 +25,18 @@ FetchApi.post = async (route, res) => {
     });
 };
 
-FetchApi.get = async (route, res) => {
+FetchApi.get = async (route) => {
   var token = await AsyncStorage.getItem("id_token");
+  // console.log(token)
   return fetch(route, {
     method: "GET",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
+
+      // body: JSON.stringify(res),
+      authorization: "token " + token,
     },
-    // body: JSON.stringify(res),
-    authorization: "token " + token,
   })
     .then((response) => {
       const statusCode = response.status;
@@ -46,4 +48,4 @@ FetchApi.get = async (route, res) => {
     });
 };
 
-module.exports = FetchApi
+module.exports = FetchApi;

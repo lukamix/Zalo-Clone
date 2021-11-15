@@ -4,6 +4,7 @@ import { TouchableOpacity,FlatList, Text, View, Image, TextInput } from "react-n
 const styles = require("../../assets/styles/mainpagestyles/timelinescreenstyles.js");
 const subloginstyles = require("../../assets/styles/subloginstyle.js");
 const {MAIN_COLOR,SUB_COLOR,GREY_COLOR} = require("../../Constants/Constants.js");
+const MainPageController = require("../../Controller/MainPage.js")
 
 const {URI} = require("../../Constants/Constants.js");
 //Test Post Data

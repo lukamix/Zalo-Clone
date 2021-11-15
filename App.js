@@ -11,20 +11,19 @@ import PostStatusScreen from "./components/MainPageComponents/PostStatus/PostSta
 import { LogBox } from 'react-native';
 import CommentTab from "./components/MainPageComponents/Comment/CommentTab.js";
 
-LogBox.ignoreLogs(['new NativeEventEmitter']); // Ignore log notification by message
+LogBox.ignoreLogs(["new NativeEventEmitter"]); // Ignore log notification by message
 LogBox.ignoreAllLogs(); //Ignore all log notifications
 
 const Stack = createNativeStackNavigator();
 
 function App() {
   return (
-    <NavigationContainer 
-    >
+    <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName="MainPage"
+        initialRouteName="HomeScreen"
       >
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="SignUpSubScene" component={SignUpSubScene} />
@@ -37,6 +36,5 @@ function App() {
     </NavigationContainer>
   );
 }
-
 
 export default App;

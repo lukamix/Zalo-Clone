@@ -1,14 +1,21 @@
 "use strict";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TouchableOpacity, Text, View, Image, TextInput } from "react-native";
 const styles = require("../../assets/styles/mainpagestyles/personalscreenstyles.js");
 const subloginstyles = require("../../assets/styles/subloginstyle.js");
+const MainPageController = require("../../Controller/MainPage.js")
 
 const {URI} = require("../../Constants/Constants.js");
 
 function PersonalScreen({ navigation }) {
     const [search_input, setSearchInput] = useState("");
-    
+    const [username, setUsername] = useState("");
+    useEffect(async()=>{
+      var user = await MainPageController.show()
+      if (user){
+        setUsername(user['data']['username'])
+      }
+    })
     return (
         <View style={styles.container}>
             <View style={subloginstyles.header}>
@@ -54,7 +61,7 @@ function PersonalScreen({ navigation }) {
                     <Image source= {require("../../assets/images/timeline/person.png")}
                         style={styles.person}/>
                     <Text style={styles.person_text}>
-                        Nguyễn Bá Đức
+                        {username}
                     </Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.person_container}>
@@ -92,7 +99,12 @@ function PersonalScreen({ navigation }) {
                         Đánh giá ứng dụng
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.person_container}>
+                <TouchableOpacity style={styles.person_container}
+                onPress={async () => {
+                  var res = {navigation: navigation}
+                  MainPageController.logout(res)
+                }}
+                >
                     <Image source= {require("../../assets/images/timeline/logout.png")}
                         style={styles.person}/>
                     <Text style={styles.person_text}>

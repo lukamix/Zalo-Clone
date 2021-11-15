@@ -15,6 +15,7 @@
     "@react-navigation/stack": "^6.0.11",
     "crypto-js": "^4.1.1",
     "expo": "~43.0.2",
+    "expo-blur": "^10.0.3",
     "expo-media-library": "^13.0.3",
     "expo-permissions": "^13.0.3",
     "expo-status-bar": "~1.1.0",

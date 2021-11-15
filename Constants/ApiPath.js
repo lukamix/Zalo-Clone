@@ -20,7 +20,10 @@ const Friends = {
 const PostComment = {};
 const PostLike = {};
 const PostReport = {};
-const Posts = {};
+const Posts = {
+  create: "posts/create",
+  list: "posts/list"
+};
 const Chats = {};
 
 module.exports = {

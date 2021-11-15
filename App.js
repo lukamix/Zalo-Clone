@@ -8,33 +8,31 @@ import SignUpSubScene from "./components/SignUpSubScene.js";
 import HomeScreen from "./components/HomeScreen.js";
 import MessageTab from "./components/MainPageComponents/Message/MessageTab.js";
 import PostStatusScreen from "./components/MainPageComponents/PostStatus/PostStatusScreen.js";
-import { LogBox } from 'react-native';
+import { LogBox } from "react-native";
 
-LogBox.ignoreLogs(['new NativeEventEmitter']); // Ignore log notification by message
+LogBox.ignoreLogs(["new NativeEventEmitter"]); // Ignore log notification by message
 LogBox.ignoreAllLogs(); //Ignore all log notifications
 
 const Stack = createNativeStackNavigator();
 
 function App() {
   return (
-    <NavigationContainer 
-    >
+    <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName="MainPage"
+        initialRouteName="HomeScreen"
       >
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="SignUpSubScene" component={SignUpSubScene} />
         <Stack.Screen name="LoginSubScreen" component={LoginSubScreen} />
         <Stack.Screen name="MainPage" component={MainPage} />
         <Stack.Screen name="MessageTab" component={MessageTab} />
-        <Stack.Screen name="PostStatusScreen" component={PostStatusScreen}/>
+        <Stack.Screen name="PostStatusScreen" component={PostStatusScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
 
 export default App;

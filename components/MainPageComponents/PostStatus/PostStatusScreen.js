@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import * as FileSystem from "expo-file-system";
+
 import {
   View,
   Image,
@@ -14,6 +17,7 @@ import * as MediaLibrary from "expo-media-library";
 
 var styles = require("../../../assets/styles/poststatusstyles/poststatusstyles.js");
 const MAX_SELECTED_IMAGEs = 4;
+const { uri_image } = require("../../../Constants/Constants.js");
 const MAX_SELECTED_VIDEOs = 1;
 const MAX_VIDEO_SIZE = 20000000; //(Bytes)
 const MAX_IMAGE_SIZE = 5000000; //(Bytes)
@@ -29,6 +33,19 @@ class PostStatusScreen extends React.Component {
     selectedPhotos: [],
     selectedVideos: [],
     username: "",
+    user: null,
+  };
+  readData = async () => {
+    try {
+      var user_ = await AsyncStorage.getItem("user");
+      user_ = JSON.parse(user_);
+      if (user_) {
+        this.setState({ user: user_ });
+      }
+    } catch (e) {
+      console.log(e);
+      alert("Failed to fetch the data from storage");
+    }
   };
   constructor(props) {
     super(props);
@@ -39,6 +56,7 @@ class PostStatusScreen extends React.Component {
     this.setVideos = this.setVideos.bind(this);
     this.setEmojis = this.setEmojis.bind(this);
     this.getImages = this.getImages.bind(this);
+    this.readData();
   }
   focusInputWithKeyboard() {
     InteractionManager.runAfterInteractions(() => {
@@ -82,7 +100,6 @@ class PostStatusScreen extends React.Component {
         return MediaLibrary.getAssetsAsync({ first: 50, mediaType: "photo" });
       })
       .then((result) => {
-        //console.log(result.assets[0].uri);
         this.setState({ images: result.assets });
       });
   };
@@ -226,6 +243,7 @@ class PostStatusScreen extends React.Component {
       </TouchableOpacity>
     );
   };
+
   _renderVideosCell = ({ item, index }) => {
     var selectedVideos = this.state.selectedVideos;
     let isSelected = false;
@@ -325,11 +343,23 @@ class PostStatusScreen extends React.Component {
           <Text style={styles.login_title}>Tạo bài viết</Text>
           <TouchableOpacity
             style={styles.button_post}
-            onPress={() => {
-              var res = {
-                described: this.state.textInput,
-                navigator: this.props,
-              };
+            onPress={async () => {
+              
+              // console.log("result", "assets-library://asset/asset.JPG?id="+result[1]+"&ext=JPG")
+              console.log(this.state.images[1].uri);
+              let uri = this.state.images[1].uri;
+              let myAssetId = uri.slice(5);
+              let returnedAssetInfo = await MediaLibrary.getAssetInfoAsync(
+                myAssetId
+                );
+                console.log(returnedAssetInfo.localUri); // you local uri link to get the file
+                const base64 = await FileSystem.readAsStringAsync(returnedAssetInfo.localUri,{encoding: "base64"});
+                // console.log(base64);
+                var res = {
+                  described: this.state.textInput,
+                  navigation: this.props.navigation,
+                  images: ['data:image/jpeg;base64,' + base64]
+                };
               MainPageController.postTimeline(res);
             }}
           >
@@ -343,7 +373,9 @@ class PostStatusScreen extends React.Component {
           <View style={styles.user_post_info}>
             <TouchableOpacity>
               <Image
-                source={require("../../../assets/images/TEMP/duc.jpg")}
+                source={{
+                  uri: uri_image(this.state.user?.data?.avatar?.fileName),
+                }}
                 style={styles.user_post_avatar}
               />
             </TouchableOpacity>
@@ -351,7 +383,7 @@ class PostStatusScreen extends React.Component {
               <View style={styles.user_post_status}>
                 <TouchableOpacity>
                   <Text style={styles.user_post_name}>
-                    {this.state.username}
+                    {this.state.user?.data?.username}
                   </Text>
                 </TouchableOpacity>
               </View>

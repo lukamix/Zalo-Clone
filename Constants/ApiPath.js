@@ -22,9 +22,14 @@ const PostLike = {};
 const PostReport = {};
 const Posts = {
   create: "posts/create",
-  list: "posts/list"
+  list: "posts/list",
+  delete: "posts/delete"
 };
-const Chats = {};
+const Chats = {
+  listChats: "chats/listChats",
+  messages: "chats/getMessages",
+  send: "chats/send"
+};
 
 module.exports = {
     Users,

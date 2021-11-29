@@ -2,6 +2,8 @@
 import React, { Component, useState } from "react";
 import { TouchableOpacity,FlatList,ScrollView ,Button, Text, View, Image, TextInput } from "react-native";
 import { EMOJI } from "../../../assets/emoji/emoji.js";
+const MainPageController = require("../../../Controller/MainPage.js");
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const {URI,MAIN_COLOR,SUB_COLOR,GREY_COLOR} = require("../../../Constants/Constants.js");
 const styles = require("../../../assets/styles/messagestyles/messagetabstyles.js");
@@ -121,12 +123,31 @@ class MessageTab extends Component {
             //current Date now;
             currentDate : this.getCurrentDate(),
         }
+        this.readData()
       }
-    onPressSendButton(){
+    async onPressSendButton(chatId){
         if(this.state.MessageSend != ""){
+            var res = {
+                type: "PRIVATE_CHAT",
+                content: this.state.MessageSend,
+                chatId: chatId
+            }
+            await MainPageController.sendMessage(res)
             this.addElement(this.state.MessageSend,this.state.userid);
         }
     }
+    readData = async () => {
+        try {
+          var user_ = await AsyncStorage.getItem("user");
+          user_ = JSON.parse(user_);
+          if (user_) {
+            this.setState({ userid: user_?.data?._id });
+          }
+        } catch (e) {
+          console.log(e);
+          alert("Failed to fetch the data from storage");
+        }
+      };
     getLastMessageID(){
         return this.state.DATA[0].messageid;
     }
@@ -234,7 +255,7 @@ class MessageTab extends Component {
         </TouchableOpacity>
     }
     render(){
-        const {username,useravatar,userstatus} = this.props.route.params;
+        const {username,useravatar,userstatus, messages,receiverid, chatID, user_id } = this.props.route.params;
     return (
         <View style={subloginstyles.container}>
             <View style={subloginstyles.header}>
@@ -249,7 +270,7 @@ class MessageTab extends Component {
                 />
                 </TouchableOpacity>
                 <Image
-                    source={useravatar}
+                    source={{uri: useravatar}}
                     style={styles.useravatar}
                 />
                 {this.state.online ? (<View style={styles.online}></View>)
@@ -278,30 +299,30 @@ class MessageTab extends Component {
             
             <View style={{flex: 1}}>
             <FlatList
-                data={this.state.DATA}
+                data={messages}
                 extraData={useState}
-                keyExtractor={(item, index) => {return item.messageid.toString()} }
+                keyExtractor={(item, index) => {return item._id.toString()} }
                 renderItem={({item,index})=>{
                     var isRendered;
-                    index<=this.state.DATA.length-2? (isRendered = (
-                         ( this.state.DATA[(index+1)].datetime===item.datetime) ? true:false)) : isRendered=false;
+                    index<=messages.length-2? (isRendered = (
+                         ( messages[(index+1)].createdAt===item.createdAt) ? true:false)) : isRendered=false;
                     var isRenderedHour;
-                    index>=1? (isRenderedHour = ((this.state.DATA[(index-1)].receiverid === item.receiverid ? true:false)))
+                    index>=1? (isRenderedHour = ((messages[(index-1)]?.user._id === receiverid ? true:false)))
                     : isRenderedHour=false;
                     var isNextSameSender;
-                    index>=1? (isNextSameSender = (this.state.DATA[index-1].receiverid===item.receiverid?true:false)):
+                    index>=1? (isNextSameSender = (messages[index-1]?.user._id === receiverid ?true:false)):
                     isNextSameSender =false;
                     return <View style={styles.message_container}>
                         {
                             isRendered ? null:
                             <View style = {styles.date_time_container}>
                                 <Text style = {
-                                    this.isToday(item.datetime) ?
-                                    styles.message_hour_time_full : styles.message_hour_time}> {item.hour+" "}
+                                    this.isToday(item.createdAt) ?
+                                    styles.message_hour_time_full : styles.message_hour_time}> {item.createdAt+" "}
                                 </Text>
                                 {
-                                    this.isToday(item.datetime)? null : (
-                                        <Text style={styles.message_date_time}>, {item.datetime} </Text>)
+                                    this.isToday(item.createdAt)? null : (
+                                        <Text style={styles.message_date_time}>, {item.createdAt} </Text>)
                                 }
                             </View>
                         }
@@ -309,16 +330,16 @@ class MessageTab extends Component {
                             marginBottom: isNextSameSender ? 0:10,
                         }]}>
                             {
-                                this.isMyMessage(item.userid) ?null: <Image style={styles.user_send_image} source={require("../../../assets/images/TEMP/duc.jpg")}/>
+                                this.isMyMessage(item.user._id) ?null: <Image style={styles.user_send_image} source={{uri: useravatar}}/>
                             }
                             <View style={[
                                 styles.message_box,
                                 {
                                     
-                                    backgroundColor: this.isMyMessage(item.userid) ? SUB_COLOR : 'white',
-                                    marginLeft: this.isMyMessage(item.userid) ? 100 : 30,
-                                    marginRight: this.isMyMessage(item.userid) ? 0 : 100,
-                                    alignSelf: this.isMyMessage(item.userid) ? 'flex-end':'flex-start',
+                                    backgroundColor: this.isMyMessage(item.user._id) ? SUB_COLOR : 'white',
+                                    marginLeft: this.isMyMessage(item.user._id) ? 100 : 30,
+                                    marginRight: this.isMyMessage(item.user._id) ? 0 : 100,
+                                    alignSelf: this.isMyMessage(item.user._id) ? 'flex-end':'flex-start',
                                 }
                             ]
                             }>
@@ -387,8 +408,8 @@ class MessageTab extends Component {
                         }
                 </View>
                 <TouchableOpacity 
-                onPress={
-                    this.onPressSendButton
+                onPress={async () =>
+                    this.onPressSendButton(chatID)
                 }>
                     <Image source={require("../../../assets/images/message/send.png")}
                         style={styles.send_button}/>

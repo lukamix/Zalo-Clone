@@ -1,6 +1,7 @@
 "use strict";
 import React, { useState } from "react";
-import { AsyncStorage } from "react-native";
+import { Alert } from "react-native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const FetchApi = {};
 
@@ -22,6 +23,7 @@ FetchApi.post = async (route, res) => {
     })
     .catch((error) => {
       console.error(error);
+      Alert.alert("Thông báo",String(error))
     });
 };
 
@@ -45,6 +47,7 @@ FetchApi.get = async (route) => {
     })
     .catch((error) => {
       console.error(error);
+      Alert.alert("Thông báo",String(error))
     });
 };
 

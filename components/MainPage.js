@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import { View, Text,Image } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MessageScreen from "./MainPageComponents/MessageScreen.js";
@@ -6,10 +6,15 @@ import PhoneBookScreen from "./MainPageComponents/PhoneBookScreen.js";
 import DiscoveryScreen from "./MainPageComponents/DiscoveryScreen.js";
 import TimelineScreen from "./MainPageComponents/TimelineScreen.js";
 import PersonalScreen from "./MainPageComponents/PersonalScreen.js";
+const MainPageController = require("../Controller/MainPage.js")
+
 
 const Tab = createBottomTabNavigator();
 
 export default function MainPage({ navigation }) {
+  useEffect(async()=>{
+    await MainPageController.show()
+  })
   return (
     <Tab.Navigator
       screenOptions={{

@@ -1,6 +1,7 @@
 "use strict";
 import React, { useState } from "react";
-import { AsyncStorage, Alert } from "react-native";
+import { Alert } from "react-native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const { Users } = require("../Constants/ApiPath.js");
 const { URI } = require("../Constants/Constants.js");
 const FetchApi = require("../Services/FetchApi");
@@ -14,8 +15,7 @@ LoginController.login = async (res) => {
     .then((response) => {
       if (response[0] == HTTP_STATUS.OK) {
         AsyncStorage.setItem("id_token", response[1].token);
-        // AsyncStorage.setItem("username", response[1].username);
-        // AsyncStorage.setItem("id", response[1].id);
+        AsyncStorage.removeItem("user");
         res.navigation.navigate("MainPage");
         return "";
       } else {

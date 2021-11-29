@@ -1,4 +1,5 @@
 const URI = 'https://floating-peak-76068.herokuapp.com/api/v1/';
+const URL_BACKEND = 'https://floating-peak-76068.herokuapp.com/';
 const MAIN_COLOR = '#F048B8';
 const SUB_COLOR = '#E078BD';
 const BLUE_COLOR = '#46BBFF';
@@ -61,12 +62,19 @@ const HTTP_STATUS = {
     NOT_EXTENDED: "510",
     NETWORK_AUTHENTICATION_REQUIRED: "511"
   };
+
+function uri_image(path) {
+  // console.log(URL_BACKEND + 'files/' + path)
+  return URL_BACKEND + 'files/' + path
+}
 module.exports = {
     URI,
     MAIN_COLOR,
+    URL_BACKEND,
     SUB_COLOR,
     BLUE_COLOR,
     RED_COLOR,
     GREY_COLOR,
-    HTTP_STATUS
+    HTTP_STATUS,
+    uri_image
 }

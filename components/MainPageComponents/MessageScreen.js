@@ -1,8 +1,12 @@
 "use strict";
-import React, { useState } from "react";
-import { TouchableOpacity,FlatList , Text, View, Image, TextInput } from "react-native";
+import React, { useState, useEffect } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const {URI} = require("../../Constants/Constants.js");
+import { TouchableOpacity,FlatList , Text, View, Image, TextInput } from "react-native";
+const MainPageController = require("../../Controller/MainPage.js");
+
+const { URL_BACKEND, uri_image } = require("../../Constants/Constants.js");
+
 const styles = require("../../assets/styles/mainpagestyles/messagescreenstyles.js");
 const subloginstyles = require("../../assets/styles/subloginstyle.js");
 
@@ -57,7 +61,31 @@ const DATA = [
 
 function MessageScreen({ navigation }) {
     const [search_input, setSearchInput] = useState("");
-    
+    const [user, setUser] = useState({});
+    const [listChats, setListChats] = useState({});
+    const readData = async () => {
+      try {
+        var user_ = await AsyncStorage.getItem("user");
+        user_ = JSON.parse(user_);
+        if (user_) {
+          setUser(user_);
+        }
+      } catch (e) {
+        console.log(e);
+        alert("Failed to fetch the data from storage");
+      }
+    };
+    const getListChats = async() =>{
+        var listChats_ = await MainPageController.getListChats()
+        // listChats_ = JSON.parse(listChats_)
+        setListChats(listChats_)
+    }
+    useEffect(async () => {
+    await MainPageController.show()
+      await readData();
+      await getListChats()
+      //   console.log(URL_BACKEND + 'files/' + user?.avatar)
+    }, []);
     return (
         <View style={styles.container}>
             <View style={subloginstyles.header}>
@@ -99,42 +127,48 @@ function MessageScreen({ navigation }) {
                 </TouchableOpacity>
             </View>
                 <FlatList
-                    data={DATA}
+                    data={listChats?.data}
                     renderItem={({item})=>{
+                        const received = item?.member.filter((mem) => mem?._id !== user?.data?._id)[0]
                         return <TouchableOpacity style={styles.FlatMessUnit} 
-                                    onPress={()=>
+                                    onPress={async()=>
                                         //fetch
                                             {
                                                 //fetch here
+                                                const messages = await MainPageController.getListMessages({chatID: item?._id})
                                                 navigation.navigate("MessageTab",{
-                                                username:item.username,
-                                                useravatar:item.avatar,
-                                                userstatus:item.status,
+                                                username:received?.username,
+                                                useravatar: uri_image(received?.avatar?.fileName),
+                                                userstatus: "item.status",
+                                                messages: messages?.data,
+                                                receiverid: received?._id,
+                                                chatID: item?._id,
+                                                user_id: user?.data?._id
                                                 //pass more params here
                                             })
                                         }
                                     }
                                 >
                                     <Image
-                                        source={item.avatar}
+                                        source={{uri:uri_image(received?.avatar?.fileName)}}
                                         style={styles.FlatMessUnitImage}
                                     />
-                                    {item.online ? (<View style={styles.online}></View>)
+                                    {"item.online" ? (<View style={styles.online}></View>)
                                     :
                                     (<View style={styles.offline}></View>)
                                     }
                                     <View style ={styles.userproperties}>
                                         <View style ={styles.status}>
-                                            <Text style={styles.username}>{item.username}</Text>
+                                            <Text style={styles.username}>{received?.username}</Text>
                                             <Text style={styles.statusText}>
-                                            {item.status}
+                                            item.status
                                             </Text>
                                         </View>
-                                        <Text style={styles.message}>{item.message}</Text>
+                                        <Text style={styles.message}>item.message</Text>
                                     </View>
                                 </TouchableOpacity>
                     }}
-                    keyExtractor={(item, index) => item.id.toString() }
+                    keyExtractor={(item, index) => item?._id.toString() }
                 />
         </View>
     );

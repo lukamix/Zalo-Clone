@@ -224,6 +224,7 @@ class TimelineScreen extends Component {
     try {
       var listPost = await MainPageController.getTimeline();
       this.setState({ postData: listPost["data"] });
+      console.log(listPost);
     } catch (e) {
       console.log(e);
     }
@@ -287,7 +288,9 @@ class TimelineScreen extends Component {
               return (
                 <View style={styles.flatlist_header}>
                   <View style={styles.what_you_think_place}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={
+                      ()=>{this.props.navigation.navigate("ProfileScreen")}
+                    }>
                       <Image
                         source={{
                           uri: uri_image(
@@ -514,7 +517,7 @@ class TimelineScreen extends Component {
                           //PostLike
                         }}
                       >
-                        {item?.isLiked ? (
+                        {item.isLike ? (
                           <Image
                             source={require("../../assets/images/timeline/liked.png")}
                             style={styles.like_button_image}
@@ -525,7 +528,7 @@ class TimelineScreen extends Component {
                             style={styles.like_button_image}
                           />
                         )}
-                        {item?.isLiked ? (
+                        {item.isLike ? (
                           <Text style={styles.liked_button_text}>Thích</Text>
                         ) : (
                           <Text style={styles.like_button_text}>Thích</Text>

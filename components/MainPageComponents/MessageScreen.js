@@ -10,54 +10,6 @@ const { URL_BACKEND, uri_image } = require("../../Constants/Constants.js");
 const styles = require("../../assets/styles/mainpagestyles/messagescreenstyles.js");
 const subloginstyles = require("../../assets/styles/subloginstyle.js");
 
-const DATA = [
-    {
-        avatar:require("../../assets/images/TEMP/duc.jpg"),
-        username: 'Đức',
-        id:'1',
-        title:'1',
-        status: '5 phút trước',
-        message: 'Chào em',
-        online:true,
-    },
-    {
-        avatar:require("../../assets/images/TEMP/lntlong.jpg"),
-        username: 'Long',
-        id:'2',
-        title:'1',
-        status: '8 phút trước',
-        message: 'Em đang làm gì đấy ?',
-        online:false,
-    },
-    {
-        avatar:require("../../assets/images/TEMP/dung.jpg"),
-        username: 'Dũng',
-        id:'3',
-        title:'1',
-        status: '11 phút trước',
-        message: 'Nhớ anh không ?',
-        online:false,
-    },
-    {
-        avatar:require("../../assets/images/TEMP/duy.jpg"),
-        username: 'Duy',
-        id:'4',
-        title:'1',
-        status: '12 phút trước',
-        message: 'Hình như em yếu đuối cần 1 người',
-        online:false,
-    },
-    {
-        avatar:require("../../assets/images/TEMP/tlong.jpg"),
-        username: 'Long',
-        id:'5',
-        title:'1',
-        status: '13 phút trước',
-        message: 'Anh chỉ xem em là bạn',
-        online:false,
-    },
-  ];
-
 
 function MessageScreen({ navigation }) {
     const [search_input, setSearchInput] = useState("");
@@ -136,6 +88,7 @@ function MessageScreen({ navigation }) {
                                             {
                                                 //fetch here
                                                 const messages = await MainPageController.getListMessages({chatID: item?._id})
+                                                console.log(messages)
                                                 navigation.navigate("MessageTab",{
                                                 username:received?.username,
                                                 useravatar: uri_image(received?.avatar?.fileName),

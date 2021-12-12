@@ -4,8 +4,14 @@ const {MAIN_COLOR,SUB_COLOR,GREY_COLOR} = require("../../../Constants/Constants.
 
 module.exports = StyleSheet.create({
     container:{
-        flex: 1,
+        flex:1,
     },
+    header:{
+        height: 60,
+        backgroundColor: '#F048B8',
+        flexDirection: 'row',
+        alignItems: 'center',
+    },  
     search_button:{
         marginLeft: 10,
         marginRight: 10,
@@ -44,12 +50,66 @@ module.exports = StyleSheet.create({
         resizeMode: 'contain',
     },
     body:{
-        
+        flex:1,
     },
-    flatlist_header:{
-        
+    personal_image:{
+        width:90+"%",
+        height:300,
+        marginTop:20,
+        marginLeft:5+"%",
     },
-
+    anh_bia_touchable:{
+    },
+    anh_bia:{
+        width:100+"%",
+        height:200,
+        resizeMode:'cover',
+        borderRadius:15,
+    },
+    anh_dai_dien_touchable:{
+        position:'absolute',
+        backgroundColor:'white',
+        top:120,
+        left:25+"%",
+        width:170,
+        height:170,
+        borderRadius:200,
+        alignItems:'center',
+        justifyContent:'center',
+    },
+    anh_dai_dien:{
+        borderRadius:200,
+        width:160,
+        height:160,
+    },
+    add_image_button:{
+        position:'absolute',
+        backgroundColor:'white',
+        width:36,
+        height:36,
+        alignItems:'center',
+        justifyContent:'center',
+        borderRadius:25,
+        bottom:5,
+        right:5,
+    },
+    add_image_button_image:{
+        width:24,
+        height:24,
+    },
+    user_name:{
+        fontSize:24,
+        fontWeight:'bold',
+        color:'#363636',
+    },
+    user_bio:{
+        color:'#696969',
+        fontSize:16,
+    },
+    user_name_container:{
+        width:'100%',
+        alignItems:'center',
+    },
     what_you_think_place:{
         height:70,
         flexDirection:'row',
@@ -79,7 +139,6 @@ module.exports = StyleSheet.create({
         marginLeft:20,
         fontSize:20,
     },
-
     what_you_can_do:{
         height:70,
         flexDirection:'row',
@@ -140,89 +199,6 @@ module.exports = StyleSheet.create({
         marginLeft:5,
         marginRight:15,
     },
-
-    story_place:{
-        height:185,
-        flexDirection:'row',
-        borderBottomWidth:10,
-        borderBottomColor:GREY_COLOR,
-    },
-    create_story:{
-        alignItems:'center',
-        width:100,
-        height:150,
-        marginTop:15,
-        marginLeft:15,
-        borderWidth:.25,
-        borderColor:GREY_COLOR,
-        borderRadius:15,
-        overflow:'hidden',
-        backgroundColor:'#EFF4F4',
-    },
-    create_story_avatar_image:{
-        width:100+"%",
-        height:100,
-        resizeMode:'cover'
-    },
-    story_header:{
-        flexDirection:'row',
-    },
-    add_story_button:{
-        alignSelf: 'center',
-        bottom: '20%',
-        position:'absolute',
-        width:30,
-        height:30,
-    },
-    create_story_text:{
-        position:'absolute',
-        bottom:0,
-    },
-    your_story:{
-        alignItems:'center',
-        width:100,
-        height:150,
-        marginTop:15,
-        marginLeft:5,
-        borderWidth:.25,
-        borderColor:GREY_COLOR,
-        overflow:'hidden',
-        borderRadius:15,
-        backgroundColor:'#EFF4F4',
-    },
-    your_story_image:{
-        borderTopWidth:1,
-        width:100+"%",
-        height:100+"%",
-        resizeMode:'cover'
-    },
-    your_story_text:{
-        position:'absolute',
-        bottom:0,
-    },
-    friend_story:{
-        alignItems:'center',
-        width:100,
-        height:150,
-        marginTop:15,
-        marginLeft:5,
-        borderWidth:.25,
-        borderColor:GREY_COLOR,
-        borderRadius:15,
-        backgroundColor:'#EFF4F4',
-        overflow:'hidden',
-    },
-    friend_story_image:{
-        borderTopWidth:1,
-        width:100+"%",
-        height:100+"%",
-        resizeMode:'cover'
-    },
-    friend_story_text:{
-        position:'absolute',
-        bottom:0,
-        color:'#FFFFFF',
-    },
     a_post:{
         marginTop:15,
     },
@@ -243,7 +219,6 @@ module.exports = StyleSheet.create({
         marginLeft:10,
     },
     user_post_status:{
-        
     },
     user_post_name:{
         fontWeight:'bold',
@@ -257,7 +232,7 @@ module.exports = StyleSheet.create({
         flexDirection:'row',
     },
     option_button:{
-        right:125,
+        right:70,
         position:'absolute',
     },
     option_button_image:{
@@ -268,7 +243,7 @@ module.exports = StyleSheet.create({
         fontSize:15,
     },
     user_post_temp_icon:{
-        right:125,
+        marginLeft:5,
         fontWeight:'bold',
     },
     user_post_public_image:{
@@ -406,35 +381,4 @@ module.exports = StyleSheet.create({
         width:20,
         height:20,
     },
-    timeline_footer:{
-        marginTop:20,
-        marginBottom:100,
-        flexDirection:'row',
-        alignItems:'center',
-        justifyContent:'center',
-        flex: 1,
-    },
-    timeline_footer_text:{
-        fontSize:30,
-    },
-    modalcontainer:{
-
-    },
-    option_view:{
-        backgroundColor:'white',
-        position:'absolute',
-        bottom:0,
-        width:100+"%",
-        height:27+"%",
-        borderRadius:15,
-    },
-    option_view_item:{
-        marginTop:10,
-        marginBottom:10,
-        alignItems:'center',
-    },
-    option_view_item_text:{
-        fontSize:20,
-        color:SUB_COLOR,
-    },
-});
+})

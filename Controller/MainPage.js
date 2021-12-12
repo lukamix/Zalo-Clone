@@ -32,13 +32,40 @@ MainPageController.show = async () => {
 
 MainPageController.postTimeline = async (res) => {
   // console.log
-  return FetchApi.post(URI + Posts.create, res)
+  if (res.described){
+    return FetchApi.post(URI + Posts.create, res)
+      .then((response) => {
+        console.log(response)
+        try{
+          if (response[0] == HTTP_STATUS.OK) {
+            Alert.alert("Thông báo","Đăng bài viết thành công")
+            res.navigation.navigate("Timeline")
+            return response[1]
+          } else {
+            return null
+          }
+        }
+        catch(e){
+          Alert.alert("Thông báo",String(e))
+        }
+      })
+      .catch((error) => {
+        console.error('ERROR',error);
+      });
+  }
+  else{
+    Alert.alert("Thông báo","Nội dung bài viết trống")
+    return
+  }
+};
+
+MainPageController.postLike = async (id) => {
+  // console.log
+  return FetchApi.post(URI + Posts.like + '/' + id)
     .then((response) => {
       console.log(response)
       try{
         if (response[0] == HTTP_STATUS.OK) {
-          Alert.alert("Thông báo","Đăng bài viết thành công")
-          res.navigation.navigate("Timeline")
           return response[1]
         } else {
           return null
@@ -75,8 +102,13 @@ MainPageController.deleteTimeline = async (res) => {
     });
 };
 
-MainPageController.getTimeline = async () => {
-  return FetchApi.get(URI + Posts.list)
+MainPageController.getTimeline = async (userID='') => {
+  var param = ''
+  if (userID != ''){
+    param = '?userId=' + userID 
+  }
+  console.log(URI + Posts.list + param)
+  return FetchApi.get(URI + Posts.list + param)
     .then((response) => {
       if (response[0] == HTTP_STATUS.OK) {
         // Alert.alert("Thông báo","Đăng bài viết thành công")

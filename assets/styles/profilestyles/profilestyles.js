@@ -106,6 +106,51 @@ module.exports = StyleSheet.create({
         color:'#696969',
         fontSize:16,
     },
+    if_not_my_profile_container:{
+        marginTop:10,
+        marginBottom:10,
+        marginLeft:10+"%",
+        marginRight:10+"%",
+        flexDirection:'row',
+        justifyContent:'space-between',
+    },
+    add_friend_container:{
+        height:32,
+        alignItems:'center',
+        justifyContent:'center',
+        width:45+"%",
+        borderRadius:10,
+        backgroundColor:GREY_COLOR,
+    },
+    add_friend_text:{
+        fontSize:18,
+        fontWeight:'bold',
+    },
+    message_container:{
+        height:32,
+        alignItems:'center',
+        justifyContent:'center',
+        width:30+"%",
+        borderRadius:10,
+        backgroundColor:SUB_COLOR,
+    },
+    message_text:{
+        color:'white',
+        fontSize:18,
+        fontWeight:'bold',
+    },
+    options_container:{
+        height:32,
+        alignItems:'center',
+        justifyContent:'center',
+        width:10+"%",
+        borderRadius:10,
+        backgroundColor:GREY_COLOR,
+    },
+    options_text:{
+        fontSize:18,
+        fontWeight:'bold',
+    },
     user_name_container:{
         width:'100%',
         alignItems:'center',
@@ -380,5 +425,26 @@ module.exports = StyleSheet.create({
         right:10,
         width:20,
         height:20,
+    },
+
+    modalcontainer:{
+
+    },
+    option_view:{
+        backgroundColor:'white',
+        position:'absolute',
+        bottom:0,
+        width:100+"%",
+        height:27+"%",
+        borderRadius:15,
+    },
+    option_view_item:{
+        marginTop:10,
+        marginBottom:10,
+        alignItems:'center',
+    },
+    option_view_item_text:{
+        fontSize:20,
+        color:SUB_COLOR,
     },
 })

@@ -344,22 +344,31 @@ class PostStatusScreen extends React.Component {
           <TouchableOpacity
             style={styles.button_post}
             onPress={async () => {
-              
-              // console.log("result", "assets-library://asset/asset.JPG?id="+result[1]+"&ext=JPG")
-              console.log(this.state.images[1].uri);
-              let uri = this.state.images[1].uri;
-              let myAssetId = uri.slice(5);
-              let returnedAssetInfo = await MediaLibrary.getAssetInfoAsync(
-                myAssetId
+              if (this.state.images[0]?.uri){
+                console.log(this.state.images[0]?.uri);
+                let uri = this.state.images[0]?.uri;
+                let myAssetId = uri.slice(5);
+                let returnedAssetInfo = await MediaLibrary.getAssetInfoAsync(
+                  myAssetId
                 );
-                console.log(returnedAssetInfo.localUri); // you local uri link to get the file
-                const base64 = await FileSystem.readAsStringAsync(returnedAssetInfo.localUri,{encoding: "base64"});
+                console.log(returnedAssetInfo.localUri);
+                const base64 = await FileSystem.readAsStringAsync(
+                  returnedAssetInfo.localUri,
+                  { encoding: "base64" }
+                );
                 // console.log(base64);
                 var res = {
                   described: this.state.textInput,
                   navigation: this.props.navigation,
-                  images: ['data:image/jpeg;base64,' + base64]
+                  images: ["data:image/jpeg;base64," + base64],
                 };
+              }
+              else {
+                var res = {
+                  described: this.state.textInput,
+                  navigation: this.props.navigation,
+                };
+              }
               MainPageController.postTimeline(res);
             }}
           >

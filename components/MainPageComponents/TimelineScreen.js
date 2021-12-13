@@ -24,141 +24,7 @@ const MainPageController = require("../../Controller/MainPage.js");
 import ImageResizer from "react-native-image-resizer";
 
 const { uri_image } = require("../../Constants/Constants.js");
-//Test Post Data
-const POST_DATA = [
-  {
-    avatar: require("../../assets/images/TEMP/duc.jpg"),
-    username: "Nguyễn Bá Đức",
-    type: "đã cập nhật ảnh đại diện",
-    status: "Vừa xong",
-    public: "public",
-    text: "Thanh xuân như 1 ly trà, trà nào cũng được đừng là trà xanh.",
-    userid: "1",
-    postid: "1",
-    title: "1",
-    count_like: "1T",
-    likers: ["Nguyễn Bá Đức"],
-    pictures: [
-      require("../../assets/images/timeline/test_image.png"),
-      require("../../assets/images/common/unnamed.png"),
-      require("../../assets/images/common/unnamed.png"),
-      require("../../assets/images/common/unnamed.png"),
-      require("../../assets/images/common/unnamed.png"),
-      require("../../assets/images/common/unnamed.png"),
-    ],
-    isLiked: true,
-  },
-  {
-    avatar: require("../../assets/images/TEMP/duc.jpg"),
-    username: "Nguyễn Bá Đức",
-    type: "đã cập nhật ảnh đại diện",
-    status: "Vừa xong",
-    public: "public",
-    text: "Thanh xuân như 1 ly trà, trà nào cũng được đừng là trà xanh.",
-    userid: "1",
-    postid: "2",
-    title: "1",
-    count_like: "1T",
-    likers: ["Nguyễn Bá Đức"],
-    pictures: [
-      require("../../assets/images/timeline/test_image.png"),
-      require("../../assets/images/common/unnamed.png"),
-      require("../../assets/images/common/unnamed.png"),
-      require("../../assets/images/common/unnamed.png"),
-      require("../../assets/images/common/unnamed.png"),
-      require("../../assets/images/common/unnamed.png"),
-    ],
-    isLiked: false,
-  },
-  {
-    avatar: require("../../assets/images/TEMP/duc.jpg"),
-    username: "Nguyễn Bá Đức",
-    type: "đã cập nhật ảnh đại diện",
-    status: "Vừa xong",
-    public: "public",
-    text: "Thanh xuân như 1 ly trà, trà nào cũng được đừng là trà xanh.",
-    userid: "1",
-    postid: "3",
-    title: "1",
-    count_like: "1T",
-    likers: ["Nguyễn Bá Đức"],
-    pictures: [
-      require("../../assets/images/timeline/test_image.png"),
-      require("../../assets/images/common/unnamed.png"),
-      require("../../assets/images/common/unnamed.png"),
-      require("../../assets/images/common/unnamed.png"),
-      require("../../assets/images/common/unnamed.png"),
-      require("../../assets/images/common/unnamed.png"),
-    ],
-    isLiked: false,
-  },
-  {
-    avatar: require("../../assets/images/TEMP/duc.jpg"),
-    username: "Nguyễn Bá Đức",
-    type: "đã cập nhật ảnh đại diện",
-    status: "Vừa xong",
-    public: "public",
-    text: "Thanh xuân như 1 ly trà, trà nào cũng được đừng là trà xanh.",
-    userid: "1",
-    postid: "4",
-    title: "1",
-    count_like: "1T",
-    likers: ["Nguyễn Bá Đức"],
-    pictures: [
-      require("../../assets/images/timeline/test_image.png"),
-      require("../../assets/images/common/unnamed.png"),
-      require("../../assets/images/common/unnamed.png"),
-      require("../../assets/images/common/unnamed.png"),
-      require("../../assets/images/common/unnamed.png"),
-      require("../../assets/images/common/unnamed.png"),
-    ],
-    isLiked: false,
-  },
-  {
-    avatar: require("../../assets/images/TEMP/duc.jpg"),
-    username: "Nguyễn Bá Đức",
-    type: "đã cập nhật ảnh đại diện",
-    status: "Vừa xong",
-    public: "public",
-    text: "Thanh xuân như 1 ly trà, trà nào cũng được đừng là trà xanh.",
-    userid: "1",
-    postid: "5",
-    title: "1",
-    count_like: "1T",
-    likers: ["Nguyễn Bá Đức"],
-    pictures: [
-      require("../../assets/images/timeline/test_image.png"),
-      require("../../assets/images/common/unnamed.png"),
-      require("../../assets/images/common/unnamed.png"),
-      require("../../assets/images/common/unnamed.png"),
-      require("../../assets/images/common/unnamed.png"),
-      require("../../assets/images/common/unnamed.png"),
-    ],
-    isLiked: false,
-  },
-  {
-    avatar: require("../../assets/images/TEMP/duc.jpg"),
-    username: "Nguyễn Bá Đức",
-    type: "đã cập nhật ảnh đại diện",
-    status: "Vừa xong",
-    public: "public",
-    text: "Thanh xuân như 1 ly trà, trà nào cũng được đừng là trà xanh.",
-    userid: "1",
-    postid: "6",
-    title: "1",
-    count_like: "1T",
-    likers: ["Nguyễn Bá Đức"],
-    pictures: [
-      require("../../assets/images/timeline/test_image.png"),
-      require("../../assets/images/common/unnamed.png"),
-      require("../../assets/images/common/unnamed.png"),
-      require("../../assets/images/common/unnamed.png"),
-      require("../../assets/images/common/unnamed.png"),
-      require("../../assets/images/common/unnamed.png"),
-    ],
-    isLiked: false,
-  },
-];
+
 //Test Story Data
 const STORY_DATA = [
   {
@@ -224,11 +90,15 @@ class TimelineScreen extends Component {
     try {
       var listPost = await MainPageController.getTimeline();
       this.setState({ postData: listPost["data"] });
-      console.log(listPost);
     } catch (e) {
       console.log(e);
     }
   };
+  deleteTimeLine = async(id) => {
+    var listPost = this.state.postData
+    listPost = listPost.filter(e => e._id !== id)
+    this.setState({postData: listPost})
+  }
 
   constructor(props) {
     super(props);
@@ -288,9 +158,11 @@ class TimelineScreen extends Component {
               return (
                 <View style={styles.flatlist_header}>
                   <View style={styles.what_you_think_place}>
-                    <TouchableOpacity onPress={
-                      ()=>{this.props.navigation.navigate("ProfileScreen")}
-                    }>
+                    <TouchableOpacity
+                      onPress={() => {
+                        this.props.navigation.navigate("ProfileScreen");
+                      }}
+                    >
                       <Image
                         source={{
                           uri: uri_image(
@@ -394,7 +266,11 @@ class TimelineScreen extends Component {
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.your_story}>
                               <Image
-                                source={require("../../assets/images/TEMP/duc.jpg")}
+                                source={{
+                                  uri: uri_image(
+                                    this.state.user?.data?.avatar?.fileName
+                                  ),
+                                }}
                                 style={styles.your_story_image}
                               />
                               <Text style={styles.your_story_text}>
@@ -429,7 +305,7 @@ class TimelineScreen extends Component {
                 </View>
               );
             }}
-            renderItem={({ item }) => {
+            renderItem={({ item, index }) => {
               return (
                 // Flat List Item
                 <View style={styles.a_post}>
@@ -483,41 +359,73 @@ class TimelineScreen extends Component {
                     >
                       {item?.described}
                     </Text>
-                    <View style={styles.image_view}>
-                      <TouchableOpacity style={styles.image_box}>
-                        <Image
-                          source={{ uri: uri_image(item?.images[0]?.fileName) }}
-                          style={styles.post_image}
-                        />
-                      </TouchableOpacity>
-                    </View>
-                    <View style={styles.count_interact}>
-                      <View style={styles.like_count}>
-                        <Text style={styles.count_interact_text}>
-                          {item?.like[0]}
-                        </Text>
-                        <Text style={styles.count_interact_text}> và </Text>
-                        <Text style={styles.count_interact_text}>
-                          {item?.countComments}
-                        </Text>
-                        <Text
-                          style={styles.count_interact_last_text}
-                          ellipsizeMode="tail"
-                          numberOfLines={1}
-                        >
-                          {" "}
-                          người khác đã thích
-                        </Text>
+                    {item?.images.length ? (
+                      <View style={styles.image_view}>
+                        <TouchableOpacity style={styles.image_box}>
+                          <Image
+                            source={{
+                              uri: uri_image(item?.images[0]?.fileName),
+                            }}
+                            style={styles.post_image}
+                          />
+                        </TouchableOpacity>
                       </View>
+                    ) : (
+                      <View />
+                    )}
+                    <View style={styles.count_interact}>
+                      {item?.like.length > 0 ? (
+                        <View style={styles.like_count}>
+                          {item?.like[0] == this.state.user.data._id ? (
+                            <Text style={styles.count_interact_text}>
+                              Bạn và
+                            </Text>
+                          ) : (
+                            <Text style={styles.count_interact_text}></Text>
+                          )}
+                          <Text style={styles.count_interact_text}>
+                            {item?.like.length}
+                          </Text>
+                          {item?.like[0] == this.state.user.data._id ? (
+                            <Text
+                              style={styles.count_interact_last_text}
+                              ellipsizeMode="tail"
+                              numberOfLines={1}
+                            >
+                              {" "}
+                              người khác đã thích
+                            </Text>
+                          ) : (
+                            <Text
+                              style={styles.count_interact_last_text}
+                              ellipsizeMode="tail"
+                              numberOfLines={1}
+                            >
+                              {" "}
+                              người đã thích
+                            </Text>
+                          )}
+                        </View>
+                      ) : (
+                        <View style={styles.like_count}></View>
+                      )}
                     </View>
                     <View style={styles.interact_post_button}>
                       <TouchableOpacity
                         style={[styles.like_button_box]}
-                        onPress={() => {
-                          //PostLike
+                        onPress={async () => {
+                          await MainPageController.postLike(item._id);
+                          var new_posts = this.state.postData;
+                          new_posts[index].isLike = !new_posts[index].isLike;
+                          if (new_posts[index].isLike) {
+                            new_posts[index].like.push(
+                              this.state.user.data._id
+                            );
+                          }
+                          this.setState({ postData: new_posts });
                         }}
                       >
-                        {item.isLike ? (
+                        {this.state.postData[index].isLike ? (
                           <Image
                             source={require("../../assets/images/timeline/liked.png")}
                             style={styles.like_button_image}
@@ -528,7 +436,7 @@ class TimelineScreen extends Component {
                             style={styles.like_button_image}
                           />
                         )}
-                        {item.isLike ? (
+                        {this.state.postData[index].isLike ? (
                           <Text style={styles.liked_button_text}>Thích</Text>
                         ) : (
                           <Text style={styles.like_button_text}>Thích</Text>
@@ -561,7 +469,11 @@ class TimelineScreen extends Component {
                     <View style={styles.second_post_comment}>
                       <TouchableOpacity>
                         <Image
-                          source={require("../../assets/images/TEMP/duc.jpg")}
+                          source={{
+                            uri: uri_image(
+                              this.state.user?.data?.avatar?.fileName
+                            ),
+                          }}
                           style={styles.second_post_comment_avatar}
                         />
                       </TouchableOpacity>
@@ -600,14 +512,14 @@ class TimelineScreen extends Component {
               <TouchableOpacity
                 style={styles.option_view_item}
                 onPress={async () => {
-                    var res = {
-                        id: option_modal_post?._id,
-                        navigation: this.props.navigation,
-                    }
-                    console.log(res)
-                    this.setModalVisible(!option_modal_visible);
-                    this.getTimeLine();
-                    await MainPageController.deleteTimeline(res);
+                  var res = {
+                    id: option_modal_post?._id,
+                    navigation: this.props.navigation,
+                  };
+                  console.log(res);
+                  this.setModalVisible(!option_modal_visible);
+                  this.deleteTimeLine(option_modal_post?._id);
+                  await MainPageController.deleteTimeline(res);
                 }}
               >
                 <Text style={styles.option_view_item_text}>Xoá bài viết</Text>

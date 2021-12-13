@@ -23,7 +23,8 @@ const PostReport = {};
 const Posts = {
   create: "posts/create",
   list: "posts/list",
-  delete: "posts/delete"
+  delete: "posts/delete",
+  like: 'postLike/action'
 };
 const Chats = {
   listChats: "chats/listChats",

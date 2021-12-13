@@ -243,6 +243,7 @@ module.exports = StyleSheet.create({
         marginLeft:10,
     },
     user_post_status:{
+        
     },
     user_post_name:{
         fontWeight:'bold',
@@ -256,7 +257,7 @@ module.exports = StyleSheet.create({
         flexDirection:'row',
     },
     option_button:{
-        right:70,
+        right:125,
         position:'absolute',
     },
     option_button_image:{
@@ -267,7 +268,7 @@ module.exports = StyleSheet.create({
         fontSize:15,
     },
     user_post_temp_icon:{
-        marginLeft:5,
+        right:125,
         fontWeight:'bold',
     },
     user_post_public_image:{

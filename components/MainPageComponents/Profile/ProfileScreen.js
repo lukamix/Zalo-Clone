@@ -13,7 +13,7 @@ import {
   TextInput,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { uri_image } from "../../../Constants/Constants.js";
+import { uri_image, process_datetime } from "../../../Constants/Constants.js";
 const MainPageController = require("../../../Controller/MainPage");
 
 const styles = require("../../../assets/styles/profilestyles/profilestyles.js");
@@ -78,8 +78,8 @@ class ProfileScreen extends Component {
   setModalVisible = (visible) => {
     this.setState({ option_modal_visible: visible });
   };
-  setOtherPersonModalVisible =(visible)=>{
-    this.setState({option_other_person_modal_visible:visible});
+  setOtherPersonModalVisible = (visible) => {
+    this.setState({ option_other_person_modal_visible: visible });
   };
   setModalPost = (post) => {
     this.setState({ option_modal_post: post });
@@ -174,44 +174,48 @@ class ProfileScreen extends Component {
                 <View style={styles.user_name_container}>
                   <Text style={styles.user_name}>{user?.data?.username}</Text>
                   <Text style={styles.user_bio}>liv' in ma lìe</Text>
-                  </View>
-                {this.state.isMyProfile?null:
+                </View>
+                {this.state.isMyProfile ? null : (
                   <View style={styles.if_not_my_profile_container}>
-                    {this.state.isMyFriend?<TouchableOpacity style={styles.add_friend_container} 
-                    onPress={
-                      ()=>{
-                        //Just do nothing
-                      }
-                    }>
-                      <Text style={styles.add_friend_text}>Bạn bè</Text>
-                    </TouchableOpacity>
-                    :
-                    <TouchableOpacity style={styles.add_friend_container} 
-                    onPress={
-                      ()=>{
-                        //Add friend here
-                      }
-                    }>
-                      <Text style={styles.add_friend_text}>Thêm bạn bè</Text>
-                    </TouchableOpacity>
-                    }
-                    <TouchableOpacity style={styles.message_container}
-                    onPress={
-                      ()=>{
+                    {this.state.isMyFriend ? (
+                      <TouchableOpacity
+                        style={styles.add_friend_container}
+                        onPress={() => {
+                          //Just do nothing
+                        }}
+                      >
+                        <Text style={styles.add_friend_text}>Bạn bè</Text>
+                      </TouchableOpacity>
+                    ) : (
+                      <TouchableOpacity
+                        style={styles.add_friend_container}
+                        onPress={() => {
+                          //Add friend here
+                        }}
+                      >
+                        <Text style={styles.add_friend_text}>Thêm bạn bè</Text>
+                      </TouchableOpacity>
+                    )}
+                    <TouchableOpacity
+                      style={styles.message_container}
+                      onPress={() => {
                         //Go to message with this person
-                      }
-                    }>
+                      }}
+                    >
                       <Text style={styles.message_text}>Nhắn tin</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.options_container}
-                    onPress={
-                      ()=>{
-                        this.setOtherPersonModalVisible(!this.state.option_other_person_modal_visible);
-                      }
-                    }>
+                    <TouchableOpacity
+                      style={styles.options_container}
+                      onPress={() => {
+                        this.setOtherPersonModalVisible(
+                          !this.state.option_other_person_modal_visible
+                        );
+                      }}
+                    >
                       <Text style={styles.options_text}>···</Text>
                     </TouchableOpacity>
-                  </View>}
+                  </View>
+                )}
                 <View style={styles.what_you_think_place}>
                   <TouchableOpacity
                     onPress={() => {
@@ -301,16 +305,16 @@ class ProfileScreen extends Component {
                       source={{ uri: uri_image(item?.author.avatar.fileName) }}
                       style={styles.user_post_avatar}
                     />
-                  </TouchableOpacity>
+                </TouchableOpacity>
                   <View style={styles.user_post_info_box}>
                     <View style={styles.user_post_status}>
                       <Text style={styles.user_post_type}>
                         <Text style={styles.user_post_name}>
                           {item?.author.username}
                         </Text>
-                        {" " + item?.type + ". "}
+                        {"                               "}
                         <Text style={styles.user_post_date}>
-                          {item?.createdAt}
+                          {process_datetime(item?.createdAt,"posts")}
                         </Text>
                         <Text style={styles.user_post_temp_icon}> · </Text>
                         <TouchableOpacity>
@@ -359,11 +363,14 @@ class ProfileScreen extends Component {
                     {item?.like.length > 0 ? (
                       <View style={styles.like_count}>
                         {item?.like[0] == this.state.user.data._id ? (
-                          <Text style={styles.count_interact_text}>Bạn và</Text>
+                          <Text style={styles.count_interact_text}>
+                            Bạn và{" "}
+                          </Text>
                         ) : (
                           <Text style={styles.count_interact_text}></Text>
                         )}
                         <Text style={styles.count_interact_text}>
+                          {" "}
                           {item?.like.length}
                         </Text>
                         {item?.like[0] == this.state.user.data._id ? (
@@ -521,32 +528,38 @@ class ProfileScreen extends Component {
           transparent={true}
           visible={this.state.option_other_person_modal_visible}
           onRequestClose={() => {
-              this.setOtherPersonModalVisible(!this.state.option_other_person_modal_visible);
-              this.setModalPost(null);
+            this.setOtherPersonModalVisible(
+              !this.state.option_other_person_modal_visible
+            );
+            this.setModalPost(null);
           }}
           style={styles.modalcontainer}
-          >
+        >
           <View style={styles.option_view}>
-              <TouchableOpacity style={styles.option_view_item}>
+            <TouchableOpacity style={styles.option_view_item}>
               <Text style={styles.option_view_item_text}>Chặn người dùng</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.option_view_item}>
-              <Text style={styles.option_view_item_text}>Báo cáo người dùng</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.option_view_item}>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.option_view_item}>
+              <Text style={styles.option_view_item_text}>
+                Báo cáo người dùng
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.option_view_item}>
               <Text style={styles.option_view_item_text}>Hủy kết bạn</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
+            </TouchableOpacity>
+            <TouchableOpacity
               style={styles.option_view_item}
               onPress={() => {
-                  this.setOtherPersonModalVisible(!this.state.option_other_person_modal_visible);
-                  this.setModalPost(null);
+                this.setOtherPersonModalVisible(
+                  !this.state.option_other_person_modal_visible
+                );
+                this.setModalPost(null);
               }}
-              >
+            >
               <Text style={styles.option_view_item_text}>Đóng</Text>
-              </TouchableOpacity>
+            </TouchableOpacity>
           </View>
-      </Modal>
+        </Modal>
       </View>
     );
   }

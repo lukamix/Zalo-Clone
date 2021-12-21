@@ -69,7 +69,7 @@ function PersonalScreen({ navigation }) {
         </TouchableOpacity>
       </View>
       <View style={styles.body}>
-        <TouchableOpacity style={styles.person_container}>
+        <TouchableOpacity style={styles.person_container} onPress={() => {navigation.navigate("ProfileScreen")}}>
           <Image
             source={{
               uri: URL_BACKEND + "files/" + user?.data?.avatar?.fileName,

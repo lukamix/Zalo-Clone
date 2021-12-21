@@ -145,6 +145,7 @@ MainPageController.getListMessages = async (res) => {
       if (response[0] == HTTP_STATUS.INTERNAL_SERVER_ERROR) {
         // Alert.alert("Thông báo","Đăng bài viết thành công")
         // res.navigate.navigate("TimeLine")
+        // console.log(response[1])
         return response[1]
       } else {
         return null

@@ -23,7 +23,7 @@ const MainPageController = require("../../Controller/MainPage.js");
 
 import ImageResizer from "react-native-image-resizer";
 
-const { uri_image } = require("../../Constants/Constants.js");
+const { uri_image, process_datetime } = require("../../Constants/Constants.js");
 
 //Test Story Data
 const STORY_DATA = [
@@ -94,11 +94,11 @@ class TimelineScreen extends Component {
       console.log(e);
     }
   };
-  deleteTimeLine = async(id) => {
-    var listPost = this.state.postData
-    listPost = listPost.filter(e => e._id !== id)
-    this.setState({postData: listPost})
-  }
+  deleteTimeLine = async (id) => {
+    var listPost = this.state.postData;
+    listPost = listPost.filter((e) => e._id !== id);
+    this.setState({ postData: listPost });
+  };
 
   constructor(props) {
     super(props);
@@ -301,7 +301,7 @@ class TimelineScreen extends Component {
             ListFooterComponent={() => {
               return (
                 <View style={styles.timeline_footer}>
-                  <Text style={styles.timeline_footer_text}> Hết rồi :D</Text>
+                  <Text style={styles.timeline_footer_text}></Text>
                 </View>
               );
             }}
@@ -324,9 +324,9 @@ class TimelineScreen extends Component {
                           <Text style={styles.user_post_name}>
                             {item?.author?.username}
                           </Text>
-                          {" " + item?.type + ". "}
+                          {"                               "}
                           <Text style={styles.user_post_date}>
-                            {item?.createdAt}
+                            {process_datetime(item?.createdAt, "posts")}
                           </Text>
                           <Text style={styles.user_post_temp_icon}> · </Text>
                           <TouchableOpacity>
@@ -384,6 +384,7 @@ class TimelineScreen extends Component {
                             <Text style={styles.count_interact_text}></Text>
                           )}
                           <Text style={styles.count_interact_text}>
+                            {" "}
                             {item?.like.length}
                           </Text>
                           {item?.like[0] == this.state.user.data._id ? (

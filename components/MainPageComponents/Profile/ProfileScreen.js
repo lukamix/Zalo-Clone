@@ -1,11 +1,8 @@
 import { throwStatement } from "@babel/types";
 import React, { Component } from "react";
 import {
-  Alert,
   Modal,
-  StyleSheet,
   Text,
-  Pressable,
   View,
   TouchableOpacity,
   Image,

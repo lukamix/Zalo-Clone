@@ -9,6 +9,20 @@ const {MAIN_COLOR,SUB_COLOR} = require("../../Constants/Constants.js");
 
 const count_friend_request = 5;
 
+const search_items = [
+    //name key is must.It is to show the text in front
+  { id: 1, name: 'angellist' },
+  { id: 2, name: 'codepen' },
+  { id: 3, name: 'envelope' },
+  { id: 4, name: 'etsy' },
+  { id: 5, name: 'facebook' },
+  { id: 6, name: 'foursquare' },
+  { id: 7, name: 'github-alt' },
+  { id: 8, name: 'github' },
+  { id: 9, name: 'gitlab' },
+  { id: 10, name: 'instagram' },
+  ];
+
 const DATA=[{
     id:1,
     avatar:require('../../assets/images/TEMP/duc.jpg'),
@@ -198,6 +212,26 @@ function PhoneBookScreen({ navigation }) {
                     )}
                 </View>
             </View>
+            {
+                search_input!=""?
+                <View style={styles.search_dropdown_container}>
+                <FlatList
+                    data={search_items}
+                    renderItem={({ item }) => {
+                    return (
+                        <TouchableOpacity style={styles.search_result_container}
+                        //onPress={...}
+                        >
+                        <Image source={require('../../assets/images/TEMP/duc.jpg')}
+                        style={styles.search_result_avatar}/>
+                        <Text style={styles.search_result_text}>{item.name}</Text>
+                        </TouchableOpacity>
+                    );
+                    }}
+                    keyExtractor={(item, index) => item?.id.toString()}
+                />
+                </View>:null
+            }
         </View>
     );
 }

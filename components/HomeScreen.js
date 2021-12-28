@@ -15,7 +15,7 @@ class HomeScreen extends Component {
         <Text style={styles.logo}>Okela</Text>
         <Swiper style={styles.wrapper}
         autoplay={true}
-        autoplayTimeout={3}>
+        autoplayTimeout={10}>
           <View style={styles.slide1}>
             <Image
               style={styles.LoginLogo}

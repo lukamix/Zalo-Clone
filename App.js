@@ -11,6 +11,8 @@ import PostStatusScreen from "./components/MainPageComponents/PostStatus/PostSta
 import { LogBox } from 'react-native';
 import CommentTab from "./components/MainPageComponents/Comment/CommentTab.js";
 import ProfileScreen from "./components/MainPageComponents/Profile/ProfileScreen.js";
+import ChangePasswordScreen from "./components/MainPageComponents/Profile/ChangePasswordScreen.js";
+import FriendRequestScreen from "./components/MainPageComponents/Profile/FriendRequestScreen.js";
 
 LogBox.ignoreLogs(["new NativeEventEmitter"]); // Ignore log notification by message
 LogBox.ignoreAllLogs(); //Ignore all log notifications
@@ -24,7 +26,7 @@ function App() {
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName="HomeScreen"
+        initialRouteName="FriendRequestScreen"
       >
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="SignUpSubScene" component={SignUpSubScene} />
@@ -34,6 +36,9 @@ function App() {
         <Stack.Screen name="PostStatusScreen" component={PostStatusScreen}/>
         <Stack.Screen name="CommentTab" component = {CommentTab}/>
         <Stack.Screen name="ProfileScreen" component={ProfileScreen}/>
+        <Stack.Screen name="ChangePasswordScreen" component={ChangePasswordScreen}/>
+        <Stack.Screen name="FriendRequestScreen" component={FriendRequestScreen}/>
+
       </Stack.Navigator>
     </NavigationContainer>
   );

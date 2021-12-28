@@ -11,6 +11,20 @@ import {
   TextInput,
 } from "react-native";
 const MainPageController = require("../../Controller/MainPage.js");
+const search_items = [
+  
+  //name key is must.It is to show the text in front
+  { id: 1, name: 'angellist',message:'chào' },
+  { id: 2, name: 'codepen',message:'hi' },
+  { id: 3, name: 'envelope',message:'chào' },
+  { id: 4, name: 'etsy',message:'he' },
+  { id: 5, name: 'facebook',message:'chào' },
+  { id: 6, name: 'foursquare',message:'chào' },
+  { id: 7, name: 'github-alt',message:'chào' },
+  { id: 8, name: 'github',message:'chào' },
+  { id: 9, name: 'gitlab',message:'chào' },
+  { id: 10, name: 'instagram',message:'chào' },
+];
 
 const {
   URL_BACKEND,
@@ -98,6 +112,7 @@ function MessageScreen({ navigation }) {
           />
         </TouchableOpacity>
       </View>
+      
       <FlatList
         data={listChats?.data}
         renderItem={({ item }) => {
@@ -151,6 +166,29 @@ function MessageScreen({ navigation }) {
         }}
         keyExtractor={(item, index) => item?._id.toString()}
       />
+      {
+        search_input!=""?
+        <View style={styles.search_dropdown_container}>
+          <FlatList
+            data={search_items}
+            renderItem={({ item }) => {
+              return (
+                <TouchableOpacity style={styles.search_result_container}
+                //onPress={...}
+                >
+                  <Image source={require('../../assets/images/TEMP/duc.jpg')}
+                  style={styles.search_result_avatar}/>
+                  <View>
+                    <Text style={styles.search_result_text}>{item.name}</Text>
+                    <Text style={styles.search_result_message}>{item.message}</Text>
+                  </View>
+                </TouchableOpacity>
+              );
+            }}
+            keyExtractor={(item, index) => item?.id.toString()}
+          />
+        </View>:null
+      }
     </View>
   );
 }

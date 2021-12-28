@@ -35,7 +35,7 @@ function LoginSubScreen({ navigation }) {
   const [phonenumber1, setText1] = useState("");
   const [password1, setPassword1] = useState("");
 
-  var renderNextButton = function () {
+  var  renderNextButton = function () {
     var imgSource =
       warningText != null && warningText != "" ? muteImg : soundImg;
     return (

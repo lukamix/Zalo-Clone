@@ -1,6 +1,6 @@
 'use strict';
 import { StyleSheet} from 'react-native';
-const {MAIN_COLOR,SUB_COLOR} = require("../../../Constants/Constants.js");
+const {MAIN_COLOR,SUB_COLOR,GREY_COLOR} = require("../../../Constants/Constants.js");
 
 module.exports = StyleSheet.create({
     container:{
@@ -124,5 +124,28 @@ module.exports = StyleSheet.create({
         position:'absolute',
         left:45,
         top:48,
+    },
+    search_dropdown_container:{
+        top:60,
+        left:40,
+        position:'absolute',
+        width:80+"%",
+        height:350,
+        backgroundColor:GREY_COLOR,
+    },
+    search_result_container:{
+        flexDirection:'row',
+        alignItems:'center',
+        backgroundColor:GREY_COLOR,
+        height:70,
+    },
+    search_result_avatar:{
+        width:50,
+        height:50,
+        borderRadius:20,
+    },
+    search_result_text:{
+        marginLeft:20,
+        fontSize:24,
     },
 });

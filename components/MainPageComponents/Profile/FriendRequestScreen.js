@@ -5,7 +5,6 @@ import {
     Text,
     View,
     Image,
-    TextInput,
     FlatList,
   } from "react-native";
 const styles = require("../../../assets/styles/profilestyles/friendrequestscreenstyles.js");
@@ -27,7 +26,7 @@ class FriendRequestScreen extends Component {
     render(){
         return(
         <View style={styles.container}>
-             <View style={styles.header}>
+            <View style={styles.header}>
                 <TouchableOpacity
                 style={styles.back_button_image}
                 activeOpacity={0.5}
@@ -59,7 +58,13 @@ class FriendRequestScreen extends Component {
                                     <Text style={styles.note}>Từ số điện thoại</Text>
                                 </View>
                                 <View style={styles.button_container}>
-                                    <TouchableOpacity style={styles.accept_button}>
+                                    <TouchableOpacity style={styles.accept_button}
+                                        onPress={
+                                            ()=>{
+                                                this.props.navigation.navigate("FriendOptionScreen");
+                                            }
+                                        }
+                                    >
                                         <Text style={styles.accept_button_text}>Đồng ý</Text>
                                     </TouchableOpacity>
                                     <TouchableOpacity style={styles.decline_button}>

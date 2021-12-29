@@ -9,6 +9,8 @@ import {
   FlatList,
   TextInput,
 } from "react-native";
+import {SafeAreaView} from "react-native-safe-area-context"
+
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { uri_image, process_datetime } from "../../../Constants/Constants.js";
 const MainPageController = require("../../../Controller/MainPage");
@@ -94,7 +96,7 @@ class ProfileScreen extends Component {
   render() {
     const { option_modal_visible, option_modal_post, user } = this.state;
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <View style={styles.header}>
           <TouchableOpacity
             style={styles.search_button}
@@ -557,7 +559,7 @@ class ProfileScreen extends Component {
             </TouchableOpacity>
           </View>
         </Modal>
-      </View>
+      </SafeAreaView>
     );
   }
 }

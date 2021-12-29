@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { TouchableOpacity, Text, View, Image, TextInput } from "react-native";
 const styles = require("../../assets/styles/mainpagestyles/discoveryscreenstyles.js");
 const subloginstyles = require("../../assets/styles/subloginstyle.js");
+import {SafeAreaView} from "react-native-safe-area-context"
 
 const {URI} = require("../../Constants/Constants.js");
 
@@ -10,7 +11,7 @@ function DiscoveryScreen({ navigation }) {
     const [search_input, setSearchInput] = useState("");
     
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <View style={subloginstyles.header}>
                 <TouchableOpacity
                 style={styles.search_button}
@@ -74,7 +75,7 @@ function DiscoveryScreen({ navigation }) {
                     <Text>Các dịch vụ phụ trợ sẽ xuất hiện ở đây</Text>
                 </View>
             </View>
-        </View>
+        </SafeAreaView>
     );
 }
 export default DiscoveryScreen;

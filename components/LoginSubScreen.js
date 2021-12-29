@@ -6,8 +6,10 @@ import {
   View,
   Image,
   TextInput,
-  Alert,
+  Alert
 } from "react-native";
+
+import {SafeAreaView} from "react-native-safe-area-context"
 
 import soundImg from "../assets/images/common/next-pink-button.png";
 import muteImg from "../assets/images/common/next-grey-button.png";
@@ -62,7 +64,7 @@ function LoginSubScreen({ navigation }) {
     );
   };
   return (
-    <View style={subloginstyles.container}>
+    <SafeAreaView style={subloginstyles.container}>
       <View style={subloginstyles.header}>
         <TouchableOpacity
           style={styles.back_button_image}
@@ -136,7 +138,7 @@ function LoginSubScreen({ navigation }) {
           {renderNextButton()}
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 

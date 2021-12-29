@@ -7,6 +7,8 @@ import DiscoveryScreen from "./MainPageComponents/DiscoveryScreen.js";
 import TimelineScreen from "./MainPageComponents/TimelineScreen.js";
 import PersonalScreen from "./MainPageComponents/PersonalScreen.js";
 const MainPageController = require("../Controller/MainPage.js")
+import {SafeAreaView} from "react-native-safe-area-context"
+
 
 
 const Tab = createBottomTabNavigator();

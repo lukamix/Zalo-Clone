@@ -3,6 +3,8 @@ import { TouchableOpacity, Text, View, Image } from "react-native";
 const styles = require("../assets/styles/appstyle.js");
 import Swiper from 'react-native-swiper/src';
 import { StatusBar } from "expo-status-bar";
+import {SafeAreaView} from "react-native-safe-area-context"
+
 
 function onPressVietnameseButton() {
   console.log("Đổi sang Tiếng Việt");
@@ -11,7 +13,7 @@ function onPressVietnameseButton() {
 class HomeScreen extends Component {
   render() {
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Text style={styles.logo}>Okela</Text>
         <Swiper style={styles.wrapper}
         autoplay={true}
@@ -91,7 +93,7 @@ class HomeScreen extends Component {
           </TouchableOpacity>
         </View>
         <StatusBar style="auto" />
-      </View>
+      </SafeAreaView>
     );
   }
 }

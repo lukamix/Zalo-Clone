@@ -1,6 +1,9 @@
 "use strict";
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
+
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MainPage from "./components/MainPage.js";
 import LoginSubScreen from "./components/LoginSubScreen.js";
@@ -16,6 +19,9 @@ import FriendRequestScreen from "./components/MainPageComponents/Profile/FriendR
 import PrivacyScreen from "./components/MainPageComponents/Profile/PrivacyScreen.js";
 import FriendOptionScreen from "./components/MainPageComponents/Profile/FriendOptionScreen.js";
 
+const styles = require("./assets/styles/appstyle.js");
+
+
 LogBox.ignoreLogs(["new NativeEventEmitter"]); // Ignore log notification by message
 LogBox.ignoreAllLogs(); //Ignore all log notifications
 
@@ -23,12 +29,13 @@ const Stack = createNativeStackNavigator();
 
 function App() {
   return (
+    <SafeAreaProvider>
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName="FriendOptionScreen"
+        initialRouteName="HomeScreen"
       >
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="SignUpSubScene" component={SignUpSubScene} />
@@ -44,6 +51,7 @@ function App() {
         <Stack.Screen name="FriendOptionScreen" component={FriendOptionScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
 

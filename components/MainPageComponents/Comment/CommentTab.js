@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Alert, Modal, StyleSheet, Text, Pressable, View,TouchableOpacity,Image,FlatList,TextInput } from "react-native";
 const styles = require('../../../assets/styles/commentstles/commentstyles.js')
+import {SafeAreaView} from "react-native-safe-area-context"
 
 const DATA_COMMENT=[
   {
@@ -10,7 +11,7 @@ const DATA_COMMENT=[
 
 class CommentTab extends Component {
   state = {
-    modalVisible: true,
+    modalVisible: this.props.modalVisible,
     MessageSend:"",
     isTexting:false,
   };
@@ -24,18 +25,22 @@ class CommentTab extends Component {
     return (
       <View style={styles.viewContainer}>
         <Modal
-          animationType='fade'
+          animationType='slide'
           transparent={true}
           visible={modalVisible}
-          onRequestClose={() => {
+          closeOnClick={true}
+          onPressOverlay={() => {
             Alert.alert("Modal has been closed.");
             this.setModalVisible(!modalVisible);
           }}
+          onRequestClose={() => this.setModalVisible(false)}
           style= {styles.modalcontainer}
         >
-          <View style={styles.container}>
+          <SafeAreaView style={styles.container}>
             <View style={styles.commentHeader}>
-              <TouchableOpacity style={styles.commentHeaderLike}>
+              <TouchableOpacity style={styles.commentHeaderLike}
+              onPress={() => this.setModalVisible(false)}
+              >
                 <Image style = {styles.liked_image}
                 source={require('../../../assets/images/timeline/liked.png')}/>
                 <Text style={styles.commentHeader_Text}>Nguyễn Bá Đức và những người k...</Text>
@@ -121,7 +126,7 @@ class CommentTab extends Component {
                     </View>
               </View>
             </View>
-          </View>
+          </SafeAreaView>
         </Modal>
       </View>
     );

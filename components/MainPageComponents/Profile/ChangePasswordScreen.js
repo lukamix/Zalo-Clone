@@ -7,6 +7,8 @@ import {
     Image,
     TextInput,
   } from "react-native";
+  import {SafeAreaView} from "react-native-safe-area-context"
+
 const styles = require("../../../assets/styles/profilestyles/changepasswordscreenstyles.js");
 class  ChangePasswordScreen  extends Component {
     constructor(props) {
@@ -19,7 +21,7 @@ class  ChangePasswordScreen  extends Component {
     }
     render(){
         return(
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <View style={styles.header}>
                 <TouchableOpacity
                 style={styles.back_button_image}
@@ -87,7 +89,7 @@ class  ChangePasswordScreen  extends Component {
                     <Text style={styles.update_text}>Cập nhật</Text>
                 </TouchableOpacity>
             </View>
-        </View>
+        </SafeAreaView>
         )
     }
 }

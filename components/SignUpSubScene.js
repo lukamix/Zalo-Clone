@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { TouchableOpacity, Text, View, Image, TextInput } from "react-native";
+import {SafeAreaView} from "react-native-safe-area-context"
+
 
 const { URI } = require("../Constants/Constants.js");
 
@@ -70,7 +72,7 @@ export default function SignUpSubScene({ navigation }) {
   };
 
   return (
-    <View style={signupstyles.container}>
+    <SafeAreaView style={signupstyles.container}>
       <View style={subloginstyles.header}>
         <TouchableOpacity
           style={styles.back_button_image}
@@ -166,6 +168,6 @@ export default function SignUpSubScene({ navigation }) {
           {renderNextButton()}
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }

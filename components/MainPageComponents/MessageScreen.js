@@ -1,6 +1,8 @@
 "use strict";
 import React, { useState, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import {SafeAreaView} from "react-native-safe-area-context"
+
 
 import {
   TouchableOpacity,
@@ -72,7 +74,7 @@ function MessageScreen({ navigation }) {
     //   console.log(URL_BACKEND + 'files/' + user?.avatar)
   }, []);
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={subloginstyles.header}>
         <TouchableOpacity
           style={styles.search_button}
@@ -189,7 +191,7 @@ function MessageScreen({ navigation }) {
           />
         </View>:null
       }
-    </View>
+    </SafeAreaView>
   );
 }
 export default MessageScreen;

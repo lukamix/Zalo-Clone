@@ -7,6 +7,8 @@ import {
     Image,
     FlatList,
   } from "react-native";
+import {SafeAreaView} from "react-native-safe-area-context"
+
 const styles = require("../../../assets/styles/profilestyles/friendrequestscreenstyles.js");
 
 const items=[
@@ -25,12 +27,12 @@ class FriendRequestScreen extends Component {
     }
     render(){
         return(
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <View style={styles.header}>
                 <TouchableOpacity
                 style={styles.back_button_image}
                 activeOpacity={0.5}
-                onPress={() => this.props.navigation.navigate("PhoneBookScreen")}
+                onPress={() => this.props.navigation.navigate("MainPage", {tab: "Phonebook"})}
                 >
                 <Image
                     source={require("../../../assets/images/common/back-button.png")}
@@ -82,7 +84,7 @@ class FriendRequestScreen extends Component {
 
                 </FlatList>
             </View>
-        </View>
+        </SafeAreaView>
         )
     }
 }

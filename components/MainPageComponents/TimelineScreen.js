@@ -9,11 +9,14 @@ import {
   TextInput,
   Modal,
 } from "react-native";
+import {SafeAreaView} from "react-native-safe-area-context"
+
 import { BlurView } from "expo-blur";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const styles = require("../../assets/styles/mainpagestyles/timelinescreenstyles.js");
 const subloginstyles = require("../../assets/styles/subloginstyle.js");
+
 const {
   MAIN_COLOR,
   SUB_COLOR,
@@ -60,6 +63,7 @@ class TimelineScreen extends Component {
     user: null,
     option_modal_post: {},
     postData: [],
+    id_comment: ""
   };
   setModalVisible = (visible) => {
     this.setState({ option_modal_visible: visible });
@@ -70,6 +74,10 @@ class TimelineScreen extends Component {
   setModalPost = (post) => {
     this.setState({ option_modal_post: post });
   };
+
+  setIdComment = (id) =>{
+    this.setState({id_comment: id})
+  }
   setSearchInput = (value) => {
     this.setState({ search_input: value });
   };
@@ -108,7 +116,7 @@ class TimelineScreen extends Component {
   render() {
     const { option_modal_visible, option_modal_post } = this.state;
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <View style={subloginstyles.header}>
           <TouchableOpacity
             style={styles.search_button}
@@ -546,7 +554,7 @@ class TimelineScreen extends Component {
             </TouchableOpacity>
           </View>
         </Modal>
-      </View>
+      </SafeAreaView>
     );
   }
 }

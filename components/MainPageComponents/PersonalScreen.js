@@ -1,6 +1,8 @@
 "use strict";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { useState, useEffect } from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
+
 import { TouchableOpacity, Text, View, Image, TextInput } from "react-native";
 const styles = require("../../assets/styles/mainpagestyles/personalscreenstyles.js");
 const subloginstyles = require("../../assets/styles/subloginstyle.js");
@@ -28,7 +30,7 @@ function PersonalScreen({ navigation }) {
     //   console.log(URL_BACKEND + 'files/' + user?.avatar)
   }, []);
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={subloginstyles.header}>
         <TouchableOpacity
           style={styles.search_button}
@@ -69,7 +71,12 @@ function PersonalScreen({ navigation }) {
         </TouchableOpacity>
       </View>
       <View style={styles.body}>
-        <TouchableOpacity style={styles.person_container} onPress={() => {navigation.navigate("ProfileScreen")}}>
+        <TouchableOpacity
+          style={styles.person_container}
+          onPress={() => {
+            navigation.navigate("ProfileScreen");
+          }}
+        >
           <Image
             source={{
               uri: URL_BACKEND + "files/" + user?.data?.avatar?.fileName,
@@ -85,14 +92,24 @@ function PersonalScreen({ navigation }) {
           />
           <Text style={styles.person_text}>Thông tin cá nhân</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.person_container}>
+        <TouchableOpacity
+          style={styles.person_container}
+          onPress={() => {
+            navigation.navigate("PrivacyScreen");
+          }}
+        >
           <Image
             source={require("../../assets/images/timeline/protection.png")}
             style={styles.protection}
           />
           <Text style={styles.person_text}>Bảo mật và quyền riêng tư</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.person_container}>
+        <TouchableOpacity
+          style={styles.person_container}
+          onPress={() => {
+            navigation.navigate("ChangePasswordScreen");
+          }}
+        >
           <Image
             source={require("../../assets/images/timeline/password.png")}
             style={styles.password}
@@ -134,7 +151,7 @@ function PersonalScreen({ navigation }) {
           <Text style={styles.person_text}>Báo lỗi</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 export default PersonalScreen;

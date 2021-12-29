@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { TouchableOpacity, Text, View, Image, TextInput,ScrollView, FlatList } from "react-native";
 const styles = require("../../assets/styles/mainpagestyles/phonebookscreenstyles.js");
 const subloginstyles = require("../../assets/styles/subloginstyle.js");
+import {SafeAreaView} from "react-native-safe-area-context"
 
 const {URI} = require("../../Constants/Constants.js");
 const {MAIN_COLOR,SUB_COLOR} = require("../../Constants/Constants.js");
@@ -97,7 +98,7 @@ function PhoneBookScreen({ navigation }) {
     }
     
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <View style={subloginstyles.header}>
                 <TouchableOpacity
                 style={styles.search_button}
@@ -164,7 +165,11 @@ function PhoneBookScreen({ navigation }) {
                             ListHeaderComponent={() => {
                                 return(<View
                                     style={styles.header_phonebook_flatlist}
-                                ><TouchableOpacity style={styles.item}>
+                                ><TouchableOpacity style={styles.item}
+                                onPress={()=>{
+                                    navigation.navigate("FriendRequestScreen")
+                                }}
+                                >
                                     <Image source={require('../../assets/images/timeline/friend-request.png')}
                                     style={styles.avatar}
                                     />
@@ -232,7 +237,7 @@ function PhoneBookScreen({ navigation }) {
                 />
                 </View>:null
             }
-        </View>
+        </SafeAreaView>
     );
 }
 export default PhoneBookScreen;
